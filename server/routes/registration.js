@@ -1,5 +1,5 @@
 const express = require('express');
-const Account = require('../utils/Account.js');
+const Account = require('../models/Account.js');
 const router = express.Router();
 
 router.post('/', (req, res) => {
