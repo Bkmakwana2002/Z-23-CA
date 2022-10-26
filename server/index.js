@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const config = require('./config.js');
 const registration = require('./routes/registration.js');
 const authentication = require('./routes/authentication.js');
-const varification = require('./routes/varification.js');
+const verification = require('./routes/verification.js');
 
 
 const app = express();
@@ -45,7 +45,7 @@ mongoose.connect(config.mongoUri, { useNewUrlParser: true }, (err) => {
 
 app.use('/api/registration', registration);
 app.use('/api/authentication', authentication);
-app.use('/api/varification', varification);
+app.use('/api/verification', verification);
 app.post('/api/logout', (req, res) => {
     res.clearCookie('token').sendStatus(200);
 });
