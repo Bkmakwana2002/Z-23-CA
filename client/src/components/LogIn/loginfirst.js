@@ -34,7 +34,7 @@ function LoginFirst() {
         <p class="text-red-500 text-xs italic text-center">Password must be ---</p>
       </div>
       <div class="flex items-center justify-center">
-      <Link as={Link} to="/loginform" style={{textDecoration: 'none'}} class="text-white">
+      <Link as={Link} to="/loginotp" style={{textDecoration: 'none'}} class="text-white">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
           Sign Up
         </button>

@@ -16,8 +16,8 @@ function LoginForm() {
     <div class="min-h-screen p-6 bg-black flex items-center justify-center">
       <div class="container max-w-screen-lg mx-auto">
         <div>
-          <div class="bg-gradient-to-r from-black to-gray-500 rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-            <div class="p-4 backdrop-blur-xl bg-white/30 grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="bg-gradient-to-r from-gray-500 to-black-500/5 rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <div class="p-4 backdrop-blur-sm bg-white/30 grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
               <div class="text-white">
                 <p class="font-medium text-lg">Personal Details</p>
                 <p>Please fill out all the fields.</p>

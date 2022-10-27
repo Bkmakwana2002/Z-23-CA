@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PreLoader from "../preloader/preloader";
-import { AiOutlineUser, AiOutlineGoogle } from "react-icons/ai";
+import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 function Login() {

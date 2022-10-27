@@ -8,6 +8,7 @@ import Login from "./components/LogIn/login"
 import LoginFirst from "./components/LogIn/loginfirst"
 import LoginExist from "./components/LogIn/loginexist"
 import LoginForm from "./components/LogIn/loginform"
+import LoginOtp from "./components/LogIn/loginotp"
 import {
   BrowserRouter as Router,
   Route,
@@ -41,6 +42,7 @@ function App() {
           <Route path="/loginfirst" element={<LoginFirst />} />
           <Route path="/loginexist" element={<LoginExist />} />
           <Route path="/loginform" element={<LoginForm />} />
+          <Route path="/loginotp" element={<LoginOtp />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
