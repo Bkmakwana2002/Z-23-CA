@@ -26,7 +26,7 @@
 }
 
 .main-loader>.loader-text>h1::first-letter {
-    color: red !important;
+    color: rgb(107, 101, 195) !important;
 }
 
 .main-loader>.loader-text>h1::after {

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../../Assets/logo.png";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import "./navbar-style.css";
@@ -55,7 +54,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item className="fork-btn">
-              <Nav.Link to={""} target="_blank" className="fork-btn-inner">
+              <Nav.Link as={Link} to="/login" onClick={() => updateExpanded(false)} className="fork-btn-inner">
                 <AiFillStar style={{ fontSize: "1.1em" }} />
                 LOG IN
               </Nav.Link>
