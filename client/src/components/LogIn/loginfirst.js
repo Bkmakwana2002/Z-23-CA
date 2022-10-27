@@ -14,23 +14,23 @@ function LoginFirst() {
     <section> 
         {loading ? <PreLoader /> : 
     <div class="min-h-screen p-6 bg-black flex items-center justify-center">
-    <div class="w-full max-w-xs">
-    <form class="bg-gradient-to-r from-gray-500 to-black-500/5 rounded shadow-lg px-8 pt-6 pb-8 mb-4">
-      <div class="mb-4">
-        <label class="block text-white text-sm font-bold mb-2 text-center" for="username">
+    <div class="w-full max-w-lg">
+    <form class="bg-gradient-to-r from-gray-500 to-black-500/5 rounded shadow-lg px-8 pt-6 pb-8 mb-4 w-full">
+      <div class=" text-center mb-4">
+        <label class="block text-white text-lg font-bold mb-2" for="username">
           Username
         </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+        <input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
       </div>
-      <div class="mb-6">
-        <label class="block text-white text-sm font-bold mb-2 text-center" for="password">
+      <div class="mb-6 text-center">
+        <label class="block text-white text-lg font-bold mb-2" for="password">
           Enter Password
         </label>
-        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
-        <label class="block text-white text-sm font-bold mb-2 text-center" for="confirm-password">
+        <input class="shadow appearance-none border border-red-500 rounded w-1/2 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+        <label class="block text-white text-lg font-bold mb-2" for="confirm-password">
           Confirm Password
         </label>
-        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+        <input class="shadow appearance-none border border-red-500 rounded w-1/2 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
         <p class="text-red-500 text-xs italic text-center">Password must be ---</p>
       </div>
       <div class="flex items-center justify-center">

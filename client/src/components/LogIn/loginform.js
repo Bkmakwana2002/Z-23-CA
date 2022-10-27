@@ -18,13 +18,13 @@ function LoginForm() {
         <div>
           <div class="bg-gradient-to-r from-gray-500 to-black-500/5 rounded shadow-lg p-4 px-4 md:p-8 mb-6">
             <div class="p-4 backdrop-blur-sm bg-white/30 grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-              <div class="text-white">
-                <p class="font-medium text-lg">Personal Details</p>
+              <div class="text-white text-xl">
+                <p class="font-medium">Personal Details</p>
                 <p>Please fill out all the fields.</p>
               </div>
     
               <div class="lg:col-span-2 text-white">
-                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5 text-lg">
                   <div class="md:col-span-5">
                     <label for="full_name">Full Name</label>
                     <input type="text" name="full_name" id="full_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
