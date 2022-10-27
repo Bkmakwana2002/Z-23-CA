@@ -4,6 +4,10 @@ import Preloader from "./components/preloader/Pre";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
+import Login from "./components/LogIn/login"
+import LoginFirst from "./components/LogIn/loginfirst"
+import LoginExist from "./components/LogIn/loginexist"
+import LoginForm from "./components/LogIn/loginform"
 import {
   BrowserRouter as Router,
   Route,
@@ -13,7 +17,6 @@ import {
 import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PreLoader from "./components/preloader/preloader";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -29,12 +32,15 @@ function App() {
   return (
     <Router>
       <Preloader load={load} />
-      <PreLoader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/loginfirst" element={<LoginFirst />} />
+          <Route path="/loginexist" element={<LoginExist />} />
+          <Route path="/loginform" element={<LoginForm />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
