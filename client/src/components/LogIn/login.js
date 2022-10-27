@@ -15,10 +15,10 @@ function Login() {
     <section> 
         {loading ? <PreLoader /> : 
     <div class="min-h-screen p-6 bg-black flex items-center justify-center">
-    <div class="w-full max-w-xs">
-    <form class="bg-gradient-to-r from-gray-500 to-black-500/5 rounded shadow-lg px-8 pt-6 pb-8 mb-4">
-      <div class="mb-4">
-        <label class="block text-white text-sm font-bold mb-2 text-center" for="username">
+    <div class="w-full max-w-lg">
+    <form class="bg-gradient-to-r from-gray-500 to-black-500/5 rounded shadow-lg px-8 pt-6 pb-8 mb-4 w-full">
+      <div class=" text-center mb-4">
+        <label class="block text-white text-lg font-bold mb-2" for="username">
         Existing User?
         </label>
         <Link as={Link} to="/loginexist" style={{textDecoration: 'none'}} class="text-white">
@@ -35,7 +35,7 @@ function Login() {
         </div>
         <div class="h-0.5 bg-white m-3"></div>
       <div class="mb-6">
-        <label class="block text-white text-sm font-bold mb-2 text-center" for="password">
+        <label class="block text-white text-lg font-bold mb-2 text-center" for="password">
           New User?
         </label>
       </div>
