@@ -17,24 +17,21 @@ function Login() {
       <div className="form-container">
         <form className="custom-form">
           <h3>Login Here</h3>
-          <label for="username">Email</label>
-          <input type="text" placeholder="Email" id="username" />
-
-          <label for="password">Password</label>
+          <input type="text" placeholder="Username or Email" id="username" />
           <input type="password" placeholder="Password" id="password" />
-          <button>Log In</button>
+          <Link to={"/login"}>Log In</Link>
           <div className="seprate-div">
             <div />
             Or
             <div />
           </div>
           <div class="social">
-            <div class="go">
+            <Link class="go" to={"/signup"}>
               <i class="fab fa-google"></i> Register
-            </div>
-            <div class="fb">
+            </Link>
+            <Link class="fb" to={"/signup"}>
               <i class="fab fa-facebook"></i>Google
-            </div>
+            </Link>
           </div>
         </form>
       </div>

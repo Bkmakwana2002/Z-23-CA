@@ -4,13 +4,13 @@
     justify-content: center;
     align-items: center;
     min-height: 110vh;
-    background-image: url("./bg-main.svg");
+    /* background-image: url("./bg-main.svg"); */
     background-size: cover;
 }
 
 .form-container>.custom-form {
     height: fit-content;
-    width: 400px;
+    width: 500px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.05);
     -webkit-backdrop-filter: blur(22px);
@@ -18,6 +18,7 @@
     border: 1px solid rgba(255, 255, 255, 0.025);
     border: 2px solid rgba(255, 255, 255, 0.1);
     padding: 50px 35px;
+    margin: 100px 20px;
 }
 
 .form-container>.custom-form * {
@@ -54,16 +55,20 @@
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
-    margin-top: 8px;
+    margin-top: 16px;
     font-size: 14px;
     font-weight: 300;
+}
+
+.form-container>.custom-form>input:focus {
+    border: 0.5px dashed rgba(238, 130, 238, 0.227);
 }
 
 .form-container>.custom-form>input::placeholder {
     color: #e5e5e5;
 }
 
-.form-container>.custom-form>button {
+.form-container>.custom-form>a {
     background-image: linear-gradient( to right, #000000 0%, #53346d 51%, #000000 100%);
     padding: 15px 45px;
     width: 100%;
@@ -75,9 +80,10 @@
     border-radius: 10px;
     display: block;
     margin: 20px 0;
+    text-decoration: none;
 }
 
-.form-container>.custom-form>button:hover {
+.form-container>.custom-form>a:hover {
     background-position: right center;
     /* change the direction of the change here */
     color: #fff;
@@ -103,19 +109,25 @@
 .form-container>.custom-form>.social {
     margin-top: 30px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.form-container>.custom-form>.social div {
+.form-container>.custom-form>.social a {
     background: red;
-    width: 150px;
+    width: 40%;
     border-radius: 3px;
     padding: 5px 10px 10px 5px;
     background-color: rgba(255, 255, 255, 0.27);
     color: #eaf0fb;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
-.form-container>.custom-form>.social div:hover {
+.form-container>.custom-form>.social a:hover {
     background-color: rgba(255, 255, 255, 0.47);
 }
 

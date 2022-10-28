@@ -3,7 +3,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../../Assets/logo.png";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import "./navbar-style.css";
@@ -40,7 +39,7 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
+        <Navbar.Brand as={Link} to={"/"} className="d-flex">
           <img src={logo} className="img-fluid logo" alt="brand" />
         </Navbar.Brand>
         <Navbar.Toggle
@@ -71,7 +70,7 @@ function NavBar() {
                   <Nav.Item>
                     <Nav.Link
                       as={Link}
-                      to="/"
+                      to="/signup"
                       onClick={() => updateExpanded(false)}
                     >
                       REGISTER
@@ -81,7 +80,7 @@ function NavBar() {
               }
             })()}
             <Nav.Item className="fork-btn">
-              <Nav.Link to={""} target="_blank" className="fork-btn-inner">
+              <Nav.Link as={Link} to={"/login"} className="fork-btn-inner">
                 LOG IN
               </Nav.Link>
             </Nav.Item>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PreLoader from "../preloader/preloader";
 import { Link } from "react-router-dom";
 
-function LoginExist() {
+function LoginFirst() {
     const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,18 +24,21 @@ function LoginExist() {
       </div>
       <div class="mb-6">
         <label class="block text-white text-sm font-bold mb-2 text-center" for="password">
-          Password
+          Enter Password
+        </label>
+        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+        <label class="block text-white text-sm font-bold mb-2 text-center" for="confirm-password">
+          Confirm Password
         </label>
         <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
         <p class="text-red-500 text-xs italic text-center">Password must be ---</p>
       </div>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-center">
+      <Link as={Link} to="/loginotp" style={{textDecoration: 'none'}} class="text-white">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-          Sign In
+          Sign Up
         </button>
-        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-          Forgot Password?
-        </a>
+      </Link>
       </div>
     </form>
   </div>
@@ -46,4 +49,4 @@ function LoginExist() {
   );
 }
 
-export default LoginExist;
+export default LoginFirst;

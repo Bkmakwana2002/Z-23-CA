@@ -15,9 +15,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PreLoader from "./components/preloader/preloader";
 import Login from "./components/Login/login";
-import LoginExist from "./components/Login/loginExist";
-import LoginFirst from "./components/Login/loginFirst";
-import LoginForm from "./components/Login/loginForm";
+import LoginExist from "./components/Login/loginexist";
+import LoginFirst from "./components/Login/loginfirst";
+import LoginForm from "./components/Login/loginform";
 import LoginOtp from "./components/Login/fillOtp";
 
 function App() {
@@ -43,8 +43,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/login-with-email" element={<LoginExist />} />
           <Route path="/signup" element={<LoginFirst />} />
-          <Route path="/signup-step-2" element={<LoginForm />} />
-          <Route path="/signup-step-3" element={<LoginOtp />} />
+          <Route path="/signup-step-3" element={<LoginForm />} />
+          <Route path="/signup-step-2" element={<LoginOtp />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
