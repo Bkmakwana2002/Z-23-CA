@@ -1,10 +1,4 @@
-/* --------- */
-
-
 /*Scrollbar   */
-
-
-/* --------- */
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -39,10 +33,11 @@ html {
     --imp-text-color: #240392;
 }
 
-.purple {
-    color: var(--imp-text-color) !important;
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+body {
+    background-image: linear-gradient( to right top, #0c2e60, #281f43, #261429, #1b0c15, #000000);
 }
 
-button:focus {
-    box-shadow: none !important;
+body {
+    font-family: "Mulish";
 }

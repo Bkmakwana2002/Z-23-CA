@@ -19,7 +19,19 @@ function NavBar() {
     }
   }
   window.addEventListener("scroll", scrollHandler);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <Navbar
       expanded={expand}
@@ -48,15 +60,28 @@ function NavBar() {
                 <AiOutlineHome style={{ marginRight: "2px" }} /> Home
               </Nav.Link>
             </Nav.Item>
-
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
                 <AiOutlineUser style={{ marginRight: "2px" }} /> About
               </Nav.Link>
             </Nav.Item>
+            {(() => {
+              if (scrollPosition > 500) {
+                return (
+                  <Nav.Item>
+                    <Nav.Link
+                      as={Link}
+                      to="/"
+                      onClick={() => updateExpanded(false)}
+                    >
+                      REGISTER
+                    </Nav.Link>
+                  </Nav.Item>
+                );
+              }
+            })()}
             <Nav.Item className="fork-btn">
               <Nav.Link to={""} target="_blank" className="fork-btn-inner">
-                <AiFillStar style={{ fontSize: "1.1em" }} />
                 LOG IN
               </Nav.Link>
             </Nav.Item>

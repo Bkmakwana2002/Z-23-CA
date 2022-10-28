@@ -28,7 +28,7 @@
 
 .navbar-toggler span {
     display: block !important;
-    background-color: #7c50f4 !important;
+    background-color: violet !important;
     height: 4px !important;
     width: 27px !important;
     margin-top: 5px !important;
@@ -76,6 +76,9 @@
         padding: 1rem 2rem !important;
         font-size: 1.4rem !important;
         background-color: #181a27 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .navbar-nav .nav-item a::after {
         display: none !important;
@@ -95,6 +98,10 @@
     color: white !important;
     padding-right: 1rem !important;
     padding-left: 1rem !important;
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
 }
 
 .nav-link {
@@ -155,7 +162,7 @@
 
 .fork-btn-inner {
     line-height: 1.4em !important;
-    background-color: rgba(153, 121, 216, 0.959) !important;
+    background-color: violet !important;
     padding: 0.8rem 1rem !important;
     vertical-align: middle !important;
     text-align: center !important;
@@ -169,7 +176,7 @@
     height: 100%;
     width: 100%;
     border-radius: 16px;
-    background: #6a5bf5;
+    background: violet;
     bottom: 0px;
     left: 0;
     z-index: -1;

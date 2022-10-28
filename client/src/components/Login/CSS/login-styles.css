@@ -1,0 +1,128 @@
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+    background-image: url("./bg-main.svg");
+    background-size: cover;
+}
+
+.form-container>.custom-form {
+    height: fit-content;
+    width: 400px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.025);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 50px 35px;
+}
+
+.form-container>.custom-form * {
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.form-container>.custom-form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.form-container>.custom-form h3::first-letter {
+    font-family: cursive;
+    color: violet;
+}
+
+.form-container>.custom-form>label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-container>.custom-form>input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.form-container>.custom-form>input::placeholder {
+    color: #e5e5e5;
+}
+
+.form-container>.custom-form>button {
+    background-image: linear-gradient( to right, #000000 0%, #53346d 51%, #000000 100%);
+    padding: 15px 45px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    margin: 20px 0;
+}
+
+.form-container>.custom-form>button:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.form-container>.custom-form>.seprate-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    color: #fff;
+}
+
+.form-container>.custom-form>.seprate-div>div {
+    height: 1px;
+    width: 30px;
+    background-color: #fff;
+    margin: 0 10px;
+}
+
+.form-container>.custom-form>.social {
+    margin-top: 30px;
+    display: flex;
+}
+
+.form-container>.custom-form>.social div {
+    background: red;
+    width: 150px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgba(255, 255, 255, 0.27);
+    color: #eaf0fb;
+    text-align: center;
+}
+
+.form-container>.custom-form>.social div:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+.form-container>.custom-form>.social .fb {
+    margin-left: 25px;
+}
+
+.form-container>.custom-form>.social i {
+    margin-right: 4px;
+}
