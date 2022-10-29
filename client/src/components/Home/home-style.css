@@ -61,16 +61,42 @@
 }
 
 .home-container>.home-content>.registration-btn>a {
-    background-color: #474787;
-    padding: 10px 30px;
+    background-image: linear-gradient( to right, #1d2b64 0%, #8748d8 51%, #1d2b64 100%);
+    padding: 15px 40px;
     text-decoration: none;
     color: #f7f1e3;
     transition: 0.5s ease;
+    display: inline-block;
+    -webkit-transform: skewX(-10deg);
+    -moz-transform: skewX(-10deg);
+    -o-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+    position: relative;
+    background-size: 300% auto;
+}
+
+.home-container>.home-content>.registration-btn>a::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 60%;
+    height: 50%;
+    border-top: 1px solid rgb(78, 0, 160);
+    border-left: 1px solid rgb(78, 0, 160);
+    transition: 0.5s ease;
+}
+
+.home-container>.home-content>.registration-btn>a:hover::before {
+    width: 80%;
+    height: 70%;
+    border-color: #fff;
 }
 
 .home-container>.home-content>.registration-btn>a:hover {
-    color: #474787;
-    background-color: #f7f1e3;
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
 }
 
 @media screen and (max-width: 799px) {

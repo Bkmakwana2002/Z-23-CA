@@ -149,3 +149,7 @@
     padding: 10px;
     color: rgba(238, 130, 238, 0.605);
 }
+
+.form-container>.custom-form>small>a {
+    margin-left: 5px;
+}
