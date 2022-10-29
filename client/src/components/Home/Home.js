@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Home3 from "./Home3";
-import Home2 from "./home2";
+import Home2 from "./Home2";
 import "./home-style.css";
 import Tilt from "react-parallax-tilt";
 import { Link } from "react-router-dom";

@@ -15,9 +15,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PreLoader from "./components/preloader/preloader";
 import Login from "./components/Login/login";
-import LoginExist from "./components/Login/loginexist";
-import LoginFirst from "./components/Login/loginfirst";
-import LoginForm from "./components/Login/loginform";
+import LoginExist from "./components/Login/loginExist";
+import LoginFirst from "./components/Login/loginFirst";
+import LoginForm from "./components/Login/loginForm";
 import LoginOtp from "./components/Login/fillOtp";
 
 function App() {
