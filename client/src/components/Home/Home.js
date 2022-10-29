@@ -4,6 +4,7 @@ import Home2 from "./Home2";
 import "./home-style.css";
 import Tilt from "react-parallax-tilt";
 import { Link } from "react-router-dom";
+import Testimonials from "../Testimonials/testimonial";
 
 function Home() {
   return (
@@ -25,6 +26,7 @@ function Home() {
       </div>
       <Home2 />
       <Home3 />
+      <Testimonials />
     </section>
   );
 }
