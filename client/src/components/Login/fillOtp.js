@@ -26,9 +26,7 @@ function LoginOtp() {
               alignItems: "center",
             }}
           >
-            <Link to={"/login"}>
-              <i class="fab fa-google"></i> Resend OTP
-            </Link>
+            <Link to={"/login"}>Resend OTP</Link>
           </small>
         </form>
       </div>

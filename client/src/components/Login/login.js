@@ -3,6 +3,7 @@ import PreLoader from "../preloader/preloader";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./CSS/login-styles.css";
+import Google from "./google.svg";
 
 function Login() {
   const [loading, setLoading] = useState(true);
@@ -26,13 +27,14 @@ function Login() {
             <div />
           </div>
           <div class="social">
-            <Link class="go" to={"/signup"}>
-              <i class="fab fa-google"></i> Register
-            </Link>
             <Link class="fb" to={"/signup"}>
-              <i class="fab fa-facebook"></i>Google
+              <img src={Google} alt="" srcSet="" />
+              Sign In with Google
             </Link>
           </div>
+          <small>
+            Don't have account? <Link to={"/signup"}>SignUp</Link>
+          </small>
         </form>
       </div>
     </>

@@ -27,6 +27,9 @@ function LoginForm() {
             id="refferal_code"
           />
           <Link to={"/login"}>Register</Link>
+          <small>
+            <Link to={"/signup"}>Back</Link>
+          </small>
         </form>
       </div>
     </>

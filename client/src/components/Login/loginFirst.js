@@ -3,6 +3,7 @@ import PreLoader from "../preloader/preloader";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./CSS/login-styles.css";
+import Google from "./google.svg";
 
 function LoginFirst() {
   const [loading, setLoading] = useState(true);
@@ -21,6 +22,17 @@ function LoginFirst() {
           <input type="password" placeholder="Password" id="password" />
           <input type="password" placeholder="Confirm Password" id="password" />
           <Link to="/signup-step-2">Send Otp</Link>
+          <div className="seprate-div">
+            <div />
+            Or
+            <div />
+          </div>
+          <div class="social">
+            <Link class="fb" to={"/signup"}>
+              <img src={Google} alt="" srcSet="" />
+              Register with Google
+            </Link>
+          </div>
           <small
             style={{
               display: "flex",
@@ -28,9 +40,7 @@ function LoginFirst() {
               alignItems: "center",
             }}
           >
-            <Link to={"/login"}>
-              <i class="fab fa-google"></i> Or Login
-            </Link>
+            Already have account? <Link to={"/login"}>Login</Link>
           </small>
         </form>
       </div>

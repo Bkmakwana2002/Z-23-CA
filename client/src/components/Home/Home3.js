@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import "./home-style.css";
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper";
+import { EffectCoverflow } from "swiper";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -54,8 +54,7 @@ function Home3() {
               modifier: 1,
               slideShadows: false,
             }}
-            pagination={true}
-            modules={[EffectCoverflow, Pagination]}
+            modules={[EffectCoverflow]}
             className="mySwiper"
           >
             <SwiperSlide>

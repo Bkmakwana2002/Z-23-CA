@@ -35,6 +35,7 @@ function Home2() {
               <div className="content-head">
                 <h1>WHAT IS CAMPUS AMBASSADOR PROGRAM?</h1>
               </div>
+              <hr />
               <div className="content-text">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
                 incidunt sed minus eveniet a non molestias dolorem fugiat
