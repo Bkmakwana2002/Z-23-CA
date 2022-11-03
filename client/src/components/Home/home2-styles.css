@@ -8,6 +8,17 @@
     flex-direction: column;
 }
 
+.home-about>.header>h1 {
+    font-size: 3rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+.home-about>.header>h1::first-letter {
+    font-family: cursive;
+    color: violet;
+}
+
 .home-about>div>.main-content>.content {
     width: 60%;
     padding: 20px;
@@ -31,11 +42,22 @@
     .home-about>div {
         width: 100%;
     }
+    .home-about>.header>h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
 }
 
 .home-about>div>.main-content>.content>.content-head>h1 {
     font-size: 2rem;
     color: #fff;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 799px) {
+    .home-about>div>.main-content>.content>.content-head>h1 {
+        font-size: 1.3rem;
+    }
 }
 
 .home-about>div>.main-content>.content>.content-head>h1::first-letter {

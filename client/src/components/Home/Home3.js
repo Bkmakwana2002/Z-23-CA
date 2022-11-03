@@ -63,7 +63,7 @@ function Home3() {
                   <img
                     src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </div>
                 <div className="main-content">
@@ -85,7 +85,7 @@ function Home3() {
                   <img
                     src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </div>
                 <div className="main-content">
@@ -107,7 +107,7 @@ function Home3() {
                   <img
                     src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </div>
                 <div className="main-content">
@@ -129,7 +129,7 @@ function Home3() {
                   <img
                     src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </div>
                 <div className="main-content">
@@ -151,7 +151,7 @@ function Home3() {
                   <img
                     src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </div>
                 <div className="main-content">
@@ -173,7 +173,7 @@ function Home3() {
                   <img
                     src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </div>
                 <div className="main-content">

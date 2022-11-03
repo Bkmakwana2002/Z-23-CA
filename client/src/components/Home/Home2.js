@@ -29,86 +29,102 @@ function Home2() {
   return (
     <>
       <div className="home-about">
+        <div className="header">
+          <h1> Why Participate? </h1>{" "}
+        </div>{" "}
         <div>
           <div className="main-content">
             <div className="content">
               <div className="content-head">
-                <h1>WHAT IS CAMPUS AMBASSADOR PROGRAM?</h1>
-              </div>
+                <h1> Perks </h1>{" "}
+              </div>{" "}
               <hr />
               <div className="content-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                incidunt sed minus eveniet a non molestias dolorem fugiat
-                expedita, rerum distinctio veritatis alias modi iure ratione,
-                natus, libero explicabo eos.
-              </div>
-            </div>
-          </div>
+                <ul
+                  style={{
+                    listStyle: "circle",
+                  }}
+                >
+                  <li>Free entry on 30+ participation.</li>
+                  <li>
+                    Certificates of Appreciation as a recognition of your hard
+                    work.
+                  </li>
+                  <li>
+                    CA’s will get a Free entry for various workshops and talks
+                    being conducted.
+                  </li>
+                  <li>
+                    Discount coupons for star nights on 50+ participation
+                    Discount for participating in events.
+                  </li>
+                </ul>
+              </div>{" "}
+            </div>{" "}
+          </div>{" "}
           <div className="main-content">
             <div className="content">
               <div className="content-head">
-                <h1>WHAT IS CAMPUS AMBASSADOR PROGRAM?</h1>
-              </div>
+                <h1> Why you should be a Campus Ambassador?</h1>{" "}
+              </div>{" "}
               <hr />
               <div className="content-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe
-                dolorem eum fuga. Debitis cumque qui dolore! Iusto porro quos
-                quidem repellat maxime iure adipisci! Sunt voluptatum eius illum
-                voluptas cumque.
-              </div>
-            </div>
-          </div>
+                <ul
+                  style={{
+                    listStyle: "circle",
+                  }}
+                >
+                  <li>Development of Oratory and Managerial Skills</li>
+                  <li>
+                    Networking with a nationwide student community and
+                    interaction with like - minded people.
+                  </li>
+                  <li>
+                    Represent your College at a National level as a Leader.
+                  </li>
+                  <li>
+                    Improve your CV and thus be recognised by top companies.
+                  </li>
+                </ul>
+              </div>{" "}
+            </div>{" "}
+          </div>{" "}
           <div className="main-content">
             <div className="content">
               <div className="content-head">
-                <h1>WHAT IS CAMPUS AMBASSADOR PROGRAM?</h1>
-              </div>
+                <h1> Responsibilities </h1>{" "}
+              </div>{" "}
               <hr />
               <div className="content-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                incidunt sed minus eveniet a non molestias dolorem fugiat
-                expedita, rerum distinctio veritatis alias modi iure ratione,
-                natus, libero explicabo eos.
-              </div>
-            </div>
-          </div>
-          <div className="main-content">
-            <div className="content">
-              <div className="content-head">
-                <h1>WHAT IS CAMPUS AMBASSADOR PROGRAM?</h1>
-              </div>
-              <hr />
-              <div className="content-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                incidunt sed minus eveniet a non molestias dolorem fugiat
-                expedita, rerum distinctio veritatis alias modi iure ratione,
-                natus, libero explicabo eos.
-              </div>
-            </div>
-          </div>
-          <div className="main-content">
-            <div className="content">
-              <div className="content-head">
-                <h1>WHAT IS CAMPUS AMBASSADOR PROGRAM?</h1>
-              </div>
-              <hr />
-              <div className="content-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                incidunt sed minus eveniet a non molestias dolorem fugiat
-                expedita, rerum distinctio veritatis alias modi iure ratione,
-                natus, libero explicabo eos. Lorem, ipsum dolor sit amet
-                consectetur adipisicing elit. Nihil incidunt sed minus eveniet a
-                non molestias dolorem fugiat expedita, rerum distinctio
-                veritatis alias modi iure ratione, natus, libero explicabo eos.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                incidunt sed minus eveniet a non molestias dolorem fugiat
-                expedita, rerum distinctio veritatis alias modi iure ratione,
-                natus, libero explicabo eos.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                <ul
+                  style={{
+                    listStyle: "circle",
+                  }}
+                >
+                  <li>
+                    You will be acting as the liaison of your respective
+                    University/ College by being the point of contact between
+                    the Zeitgeist 22 Team and your College Students
+                  </li>
+                  <li>
+                    Publicity through Social Media, Posters, Campaigns,
+                    Workshops, etc.
+                  </li>
+                  <li>
+                    Organizing events and workshops regarding Zeitgeist 22 for
+                    the selection of Representatives and teams from your
+                    respective college.
+                  </li>
+                  <li>
+                    Collecting feedback from the students of your college at a
+                    ground level.
+                  </li>
+                </ul>
+              </div>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>{" "}
+      </div>{" "}
     </>
   );
 }

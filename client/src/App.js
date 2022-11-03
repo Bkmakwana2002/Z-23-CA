@@ -1,4 +1,5 @@
 import "./App.css";
+import { useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Preloader from "./components/preloader/Pre";
 import Navbar from "./components/Navbar/Navbar";
@@ -21,7 +22,6 @@ import LoginOtp from "./components/Login/fillOtp";
 
 function App() {
   const [load, upadateLoad] = useState(true);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       upadateLoad(false);
@@ -33,20 +33,20 @@ function App() {
   return (
     <Router>
       <Preloader load={load} />
-      {/* <PreLoader load={load} /> */}
+      {/* <PreLoader /> */}
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<LoginFirst />} />
-          <Route path="/signup-step-3" element={<LoginForm />} />
-          <Route path="/signup-step-2" element={<LoginOtp />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+          <Route path="/" element={<Home />} />{" "}
+          <Route path="/login" element={<Login />} />{" "}
+          <Route path="/signup" element={<LoginFirst />} />{" "}
+          <Route path="/signup-step-3" element={<LoginForm />} />{" "}
+          <Route path="/signup-step-2" element={<LoginOtp />} />{" "}
+          <Route path="*" element={<Navigate to="/" />} />{" "}
+        </Routes>{" "}
         <Footer />
-      </div>
+      </div>{" "}
     </Router>
   );
 }
