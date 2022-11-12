@@ -15,21 +15,56 @@ function LoginForm() {
   return (
     <>
       <div className="form-container">
-        <form className="custom-form">
-          <h3>Register-3/3</h3>
-          <input type="text" placeholder="full name" id="name" />
-          <input type="text" placeholder="college name" id="college name" />
-          <input type="text" placeholder="city" id="city" />
-          <input type="text" placeholder="state" id="state" />
+        <form className="custom-form" noValidate>
+          <h3>Register-2/2</h3>
+          <input type="text" placeholder="Full name" id="name" required />
+          <input
+            type="text"
+            placeholder="College name"
+            id="college name"
+            required
+          />
+          <div className="gender">
+            <div>Gender :</div>
+            <input
+              type="radio"
+              id="html"
+              name="fav_language"
+              value="HTML"
+              required
+            />{" "}
+            <label for="html">Male</label>
+            <br />
+            <input
+              type="radio"
+              id="css"
+              name="fav_language"
+              value="CSS"
+              required
+            />{" "}
+            <label for="css">Female</label>
+            <br />{" "}
+            <input
+              type="radio"
+              id="javascript"
+              name="fav_language"
+              value="JavaScript"
+              required
+            />
+            <label for="javascript">Other</label>
+          </div>
+          <input type="text" placeholder="State" id="state" required />
           <input
             type="text"
             placeholder="6 digit refferal code(if any)"
             id="refferal_code"
           />
-          <button type="submit"> Save </button>{" "}
-          <small>
+          <label for="file">ID Card</label>
+          <input type="file" id="id_card" name="id_card" required />
+          <button type="submit"> Finish </button>{" "}
+          {/* <small>
             <Link to={"/profile"}>Varify Later</Link>
-          </small>
+          </small> */}
         </form>
       </div>
     </>

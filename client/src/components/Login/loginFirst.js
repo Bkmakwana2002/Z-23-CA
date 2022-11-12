@@ -45,7 +45,7 @@ function LoginFirst() {
       const authentication = getAuth();
       createUserWithEmailAndPassword(authentication, user.email, user.password)
         .then((response) => {
-          // navigate('/')
+          navigate("/signup-step-3");
           toast.success("Account Created Successfuly");
           // response.user.sendEmailVerification();
           // authentication.signOut();
@@ -85,7 +85,7 @@ function LoginFirst() {
       />
       <div className="form-container">
         <form className="custom-form" noValidate onSubmit={handleSubmit}>
-          <h3> Register - 1/2 </h3>{" "}
+          <h3> Register - 1 / 2 </h3>{" "}
           <input
             type="text"
             placeholder="Email"

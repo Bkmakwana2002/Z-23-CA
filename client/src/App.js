@@ -21,8 +21,9 @@ import LoginForm from "./components/Login/loginForm";
 import LoginOtp from "./components/Login/fillOtp";
 import { app } from "./firebase-config";
 import { getAuth } from "firebase/auth";
-import Profile from "./components/Profile/Profile";
+
 import ForgotPassowrd from "./components/Login/forgotPassword";
+import Profile_main from "./components/Profile/Profile-main";
 
 function App(props) {
   const [load, upadateLoad] = useState(true);
@@ -70,12 +71,12 @@ function App(props) {
             if (email) {
               return (
                 <>
-                  <Route path="/signup-step-3" element={<LoginForm />} />{" "}
-                  <Route path="/profile" element={<Profile />} />{" "}
+                  <Route path="/profile" element={<Profile_main />} />{" "}
                 </>
               );
             }
           })()}
+          <Route path="/signup-step-3" element={<LoginForm />} />{" "}
           <Route path="*" element={<Navigate to="/" />} />{" "}
         </Routes>{" "}
         <Footer />

@@ -12,14 +12,11 @@ import PreLoader from "../preloader/preloader";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 function Login() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const auth = getAuth();
-  const [signInWithEmailAndPassword, User, Loading, error] =
-    useSignInWithEmailAndPassword(auth);
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -51,22 +48,26 @@ function Login() {
     if (user.email === "" || user.password === "") {
       toast.error("Fill required field first");
     } else {
+      setLoading(true);
       const authentication = getAuth();
       signInWithEmailAndPassword(authentication, user.email, user.password)
         .then((response) => {
-          // navigate("/");
-          toast.success("Loggod in");
           sessionStorage.setItem(
             "Auth Token",
             response._tokenResponse.refreshToken
           );
+          setLoading(false);
+          toast.success("Logged in");
+          // navigate("/profile");
         })
         .catch((error) => {
           if (error.code === "auth/wrong-password") {
             toast.error("Please check the Password");
+            setLoading(false);
           }
           if (error.code === "auth/user-not-found") {
             toast.error("Please check the Email");
+            setLoading(false);
           }
         });
     }
@@ -87,7 +88,7 @@ function Login() {
       />
       <div className="form-container">
         {(() => {
-          if (Loading) {
+          if (loading) {
             return <PreLoader />;
           }
         })()}
