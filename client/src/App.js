@@ -19,30 +19,63 @@ import Login from "./components/Login/login";
 import LoginFirst from "./components/Login/loginFirst";
 import LoginForm from "./components/Login/loginForm";
 import LoginOtp from "./components/Login/fillOtp";
+import { app } from "./firebase-config";
+import { getAuth } from "firebase/auth";
+import Profile from "./components/Profile/Profile";
+import ForgotPassowrd from "./components/Login/forgotPassword";
 
-function App() {
+function App(props) {
   const [load, upadateLoad] = useState(true);
+  const [email, setEmail] = useState("");
   useEffect(() => {
     const timer = setTimeout(() => {
       upadateLoad(false);
     }, 1200);
-
     return () => clearTimeout(timer);
   }, []);
-
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        console.log("userAuth", userAuth);
+        setEmail(userAuth.email);
+      } else {
+        setEmail("");
+      }
+    });
+    return unsubscribe;
+  }, []);
   return (
     <Router>
       <Preloader load={load} />
       {/* <PreLoader /> */}
       <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
+        <Navbar email={email} setEmail={setEmail} />
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />} />{" "}
-          <Route path="/login" element={<Login />} />{" "}
-          <Route path="/signup" element={<LoginFirst />} />{" "}
-          <Route path="/signup-step-3" element={<LoginForm />} />{" "}
-          <Route path="/signup-step-2" element={<LoginOtp />} />{" "}
+          <Route path="/" element={<Home email={email} />} />{" "}
+          {(() => {
+            if (!email) {
+              return (
+                <>
+                  <Route path="/login" element={<Login />} />{" "}
+                  <Route path="/signup" element={<LoginFirst />} />{" "}
+                  <Route path="/signup-step-2" element={<LoginOtp />} />{" "}
+                  <Route path="/forgot-password" element={<ForgotPassowrd />} />{" "}
+                </>
+              );
+            }
+          })()}
+          {(() => {
+            if (email) {
+              return (
+                <>
+                  <Route path="/signup-step-3" element={<LoginForm />} />{" "}
+                  <Route path="/profile" element={<Profile />} />{" "}
+                </>
+              );
+            }
+          })()}
           <Route path="*" element={<Navigate to="/" />} />{" "}
         </Routes>{" "}
         <Footer />

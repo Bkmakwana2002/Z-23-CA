@@ -6,8 +6,12 @@ import logo from "../../Assets/logo.png";
 import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import "./navbar-style.css";
+import { useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
 
-function NavBar() {
+function NavBar(props) {
+  let navigate = useNavigate();
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
   function scrollHandler() {
@@ -23,7 +27,6 @@ function NavBar() {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
@@ -31,63 +34,133 @@ function NavBar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const handleLogout = () => {
+    sessionStorage.removeItem("Auth Token");
+    const auth = getAuth();
+    auth.signOut();
+    navigate("/");
+    toast.info("Logout Successfuly");
+    props.setEmail("");
+  };
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
-      <Container>
-        <Navbar.Brand as={Link} to={"/"} className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" />
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginRight: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineUser style={{ marginRight: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
+    <>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <Navbar
+        expanded={expand}
+        fixed="top"
+        expand="md"
+        className={navColour ? "sticky" : "navbar"}
+      >
+        <Container>
+          <Navbar.Brand as={Link} to={"/"} className="d-flex">
+            <img src={logo} className="img-fluid logo" alt="brand" />
             {(() => {
-              if (scrollPosition > 500) {
+              if (props.email) {
                 return (
-                  <Nav.Item>
-                    <Nav.Link
-                      as={Link}
-                      to="/signup"
-                      onClick={() => updateExpanded(false)}
-                    >
-                      REGISTER
-                    </Nav.Link>
-                  </Nav.Item>
+                  <small>
+                    {" "}
+                    <AiOutlineUser style={{ marginRight: "2px" }} />{" "}
+                    {props.email}
+                  </small>
                 );
               }
             })()}
-            <Nav.Item className="fork-btn">
-              <Nav.Link as={Link} to={"/login"} className="fork-btn-inner">
-                LOG IN
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            onClick={() => {
+              updateExpanded(expand ? false : "expanded");
+            }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </Navbar.Toggle>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="ms-auto" defaultActiveKey="#home">
+              <Nav.Item>
+                <Nav.Link
+                  as={Link}
+                  to="/"
+                  onClick={() => updateExpanded(false)}
+                >
+                  <AiOutlineHome style={{ marginRight: "2px" }} /> Home
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                  as={Link}
+                  to="/"
+                  onClick={() => updateExpanded(false)}
+                >
+                  <AiOutlineUser style={{ marginRight: "2px" }} /> About
+                </Nav.Link>
+              </Nav.Item>
+              {(() => {
+                if (props.email) {
+                  return (
+                    <Nav.Item>
+                      <Nav.Link
+                        onClick={() => {
+                          updateExpanded(false);
+                          handleLogout();
+                        }}
+                      >
+                        <span class="material-symbols-outlined">logout</span>{" "}
+                        Logout
+                      </Nav.Link>
+                    </Nav.Item>
+                  );
+                }
+              })()}
+              {(() => {
+                if (!props.email) {
+                  return (
+                    <>
+                      {(() => {
+                        if (scrollPosition > 500) {
+                          return (
+                            <Nav.Item>
+                              <Nav.Link
+                                as={Link}
+                                to="/signup"
+                                onClick={() => updateExpanded(false)}
+                              >
+                                REGISTER
+                              </Nav.Link>
+                            </Nav.Item>
+                          );
+                        }
+                      })()}
+                      <Nav.Item className="fork-btn">
+                        <Nav.Link
+                          as={Link}
+                          to={"/login"}
+                          className="fork-btn-inner"
+                        >
+                          LOG IN
+                        </Nav.Link>
+                      </Nav.Item>
+                    </>
+                  );
+                }
+              })()}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
   );
 }
 

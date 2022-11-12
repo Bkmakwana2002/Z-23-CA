@@ -26,9 +26,9 @@ function LoginForm() {
             placeholder="6 digit refferal code(if any)"
             id="refferal_code"
           />
-          <Link to={"/login"}>Register</Link>
+          <button type="submit"> Save </button>{" "}
           <small>
-            <Link to={"/signup"}>Back</Link>
+            <Link to={"/profile"}>Varify Later</Link>
           </small>
         </form>
       </div>
