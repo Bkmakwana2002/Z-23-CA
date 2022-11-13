@@ -58,7 +58,7 @@ function Login() {
           );
           setLoading(false);
           toast.success("Logged in");
-          // navigate("/profile");
+          navigate("/profile");
         })
         .catch((error) => {
           if (error.code === "auth/wrong-password") {

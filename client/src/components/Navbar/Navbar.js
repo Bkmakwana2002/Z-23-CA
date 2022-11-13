@@ -101,7 +101,7 @@ function NavBar(props) {
               <Nav.Item>
                 <Nav.Link
                   as={Link}
-                  to="/"
+                  to="#about"
                   onClick={() => updateExpanded(false)}
                 >
                   <AiOutlineUser style={{ marginRight: "2px" }} /> About

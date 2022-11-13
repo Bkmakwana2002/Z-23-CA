@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import "./CSS/login-styles.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../firebase-config"
-import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage'
-import { v4 as uuidv4 } from 'uuid';
+import { storage } from "../../firebase-config";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 
 function LoginForm(props) {
   let navigate = useNavigate();
-  const [image, setImage] = useState(null)
-  const [url, setUrl] = useState([])
-  const imageListRef = ref(storage, 'ID_CARD/')
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState();
+  const imageListRef = ref(storage, "ID_CARD/");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
     name: "",
@@ -36,7 +36,7 @@ function LoginForm(props) {
       user.college === "" ||
       user.gender === "" ||
       user.state === "" ||
-      user.id_card === "" ||
+      // user.id_card === "" ||
       user.dob === "" ||
       user.phone === "" ||
       user.YearOfPassing === ""
@@ -56,42 +56,43 @@ function LoginForm(props) {
           dob: user.dob,
           phone: user.phone,
           YearOfPassing: user.YearOfPassing,
-          idCard: url
+          idCard: url,
         }),
       })
         .then((response) => response.json())
         .then((json) => {
+          setUrl("");
           navigate("/profile");
         });
-        uploadImage()
+      uploadImage();
       setLoading(false);
     }
-  }
+  };
 
   const uploadImage = () => {
     if (image === null) {
       return;
     }
-    const imageRef = ref(storage, `ID_CARD/${image.name + uuidv4()}`)
+    const imageRef = ref(storage, `ID_CARD/${image.name + uuidv4()}`);
     uploadBytes(imageRef, image).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setUrl((prev) => [...prev, url])
-      })
-    })
-    navigate('/');
-   console.log(url);
-  }
+        setUrl(url);
+      });
+    });
+    navigate("/");
+    console.log(url);
+  };
 
   useEffect(() => {
     listAll(imageListRef).then((res) => {
       res.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
-          setUrl((prev) => [...prev, url])
-        })
-      })
-    })
-    console.log(url)
-  }, [])
+          setUrl(url);
+        });
+      });
+    });
+    console.log(url);
+  }, []);
 
   {
     (() => {
@@ -194,9 +195,11 @@ function LoginForm(props) {
             type="file"
             id="id_card"
             name="id_card"
-            value={url}
-            accept='ID_CARD/*'
-            onChange={(e)=>{setImage(e.target.files[0])}}
+            url={url}
+            accept="ID_CARD/*"
+            onChange={(e) => {
+              setImage(e.target.files[0]);
+            }}
             required
           />
           <button type="submit"> Finish </button>{" "}

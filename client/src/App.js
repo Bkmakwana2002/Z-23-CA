@@ -28,6 +28,8 @@ import Profile_main from "./components/Profile/Profile-main";
 function App(props) {
   const [load, upadateLoad] = useState(true);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [isVarified, setVarified] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       upadateLoad(false);
@@ -40,8 +42,11 @@ function App(props) {
       if (userAuth) {
         console.log("userAuth", userAuth);
         setEmail(userAuth.email);
+        setName(userAuth.displayName);
+        setVarified(userAuth.emailVerified);
       } else {
         setEmail("");
+        setVarified(false);
       }
     });
     return unsubscribe;
@@ -51,7 +56,7 @@ function App(props) {
       <Preloader load={load} />
       {/* <PreLoader /> */}
       <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar email={email} setEmail={setEmail} />
+        <Navbar email={email} setEmail={setEmail} name={name} />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home email={email} />} />{" "}
@@ -73,7 +78,9 @@ function App(props) {
                 <>
                   <Route
                     path="/profile"
-                    element={<Profile_main email={email} />}
+                    element={
+                      <Profile_main email={email} isVarified={isVarified} />
+                    }
                   />{" "}
                 </>
               );

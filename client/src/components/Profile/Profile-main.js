@@ -29,7 +29,7 @@ const Profile_main = (props) => {
         <div className="main-content">
           <div className="profile-data-main">
             <div className={`${isActive === values[0].id ? "yes" : "no"}`}>
-              <Profile email={props.email} />
+              <Profile email={props.email} isVarified={props.isVarified} />
             </div>
             <div className={`${isActive === values[1].id ? "yes1" : "no1"}`}>
               <Leaderboard />

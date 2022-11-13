@@ -55,3 +55,12 @@ exports.leaderBoard = async(req, res) => {
         res.status(500).send(error);
     }
 }
+exports.phoneUpdate = async(req, res) => {
+    try {
+        db.collection("CA").doc(req.body.email).update({ 'phone': req.body.phone });
+        res.status(200).send("Phone Updated successfully");
+    } catch (error) {
+        console.log("error");
+        res.status(404).send(error);
+    }
+}

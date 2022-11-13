@@ -10,17 +10,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 function ForgotPassowrd() {
   const auth = getAuth();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState(null);
-  const [sendPasswordResetEmail, sending, resetError] =
+  const [sendPasswordResetEmail, sending, error] =
     useSendPasswordResetEmail(auth);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
   const handleResetPassword = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!email) {
       toast.error("Fill required field first");
     } else {
@@ -28,11 +24,8 @@ function ForgotPassowrd() {
       setLoading(false);
       await sendPasswordResetEmail(email);
     }
-  };
-  if (resetError) {
-    toast.error("Something went wrong");
     setLoading(false);
-  }
+  };
   return (
     <>
       <ToastContainer
@@ -50,7 +43,7 @@ function ForgotPassowrd() {
       <div className="form-container">
         {" "}
         {(() => {
-          if (sending) {
+          if (loading) {
             return <PreLoader />;
           }
         })()}{" "}
