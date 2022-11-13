@@ -9,7 +9,7 @@ exports.addUserDetail = (req, res) => {
         const userJson = {
             name: req.body.name,
             email: req.body.email,
-            pic: req.body.pic,
+            // pic: req.body.pic,
             idCard: req.body.idCard,
             dob: req.body.dob,
             YearOfPassing: req.body.YearOfPassing,
@@ -22,13 +22,13 @@ exports.addUserDetail = (req, res) => {
         };
         const response = db.collection("CA").doc(id).set(userJson);
         console.log("updated successfully");
-        res.json(response);
+        res.status(200).json(response);
     } catch (error) {
         res.status(500).send(error.message);
     }
 }
 
-exports.getUserDetail = async (req, res) => {
+exports.getUserDetail = async(req, res) => {
     try {
         const snapshot = await db.collection("CA").get()
         const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
@@ -46,7 +46,7 @@ exports.getUserDetail = async (req, res) => {
     }
 }
 
-exports.leaderBoard = async (req, res) => {
+exports.leaderBoard = async(req, res) => {
     try {
         const snapshot = await db.collection("CA").get();
         const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));

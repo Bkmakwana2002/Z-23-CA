@@ -71,12 +71,15 @@ function App(props) {
             if (email) {
               return (
                 <>
-                  <Route path="/profile" element={<Profile_main />} />{" "}
+                  <Route
+                    path="/profile"
+                    element={<Profile_main email={email} />}
+                  />{" "}
                 </>
               );
             }
           })()}
-          <Route path="/signup-step-3" element={<LoginForm />} />{" "}
+          <Route path="/signup-step-3" element={<LoginForm email={email} />} />{" "}
           <Route path="*" element={<Navigate to="/" />} />{" "}
         </Routes>{" "}
         <Footer />

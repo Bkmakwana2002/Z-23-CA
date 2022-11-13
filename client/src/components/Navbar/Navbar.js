@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../../Assets/logo.png";
 import { Link } from "react-router-dom";
-import { AiFillStar, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import "./navbar-style.css";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
@@ -117,7 +117,9 @@ function NavBar(props) {
                           handleLogout();
                         }}
                       >
-                        <span class="material-symbols-outlined">logout</span>{" "}
+                        <span className="material-symbols-outlined">
+                          logout
+                        </span>{" "}
                         Logout
                       </Nav.Link>
                     </Nav.Item>

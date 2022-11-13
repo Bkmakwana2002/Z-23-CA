@@ -7,9 +7,10 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { provider } from "../../firebase-config";
+import PreLoader from "../preloader/preloader";
 
 function LoginFirst() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -20,6 +21,7 @@ function LoginFirst() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   const registerGoogle = () => {
+    setLoading(true);
     const authentication = getAuth();
     signInWithPopup(authentication, provider)
       .then((result) => {
@@ -30,11 +32,13 @@ function LoginFirst() {
         const user = result.user;
         sessionStorage.setItem("Auth Token", token);
         toast.success("Account Created Successfully");
+        setLoading(false);
         navigate("/signup-step-3");
         // ...
       })
       .catch((error) => {
         toast.error("Something went wrong");
+        setLoading(false);
       });
   };
   const handleSubmit = (e) => {
@@ -43,6 +47,7 @@ function LoginFirst() {
       toast.error("Please fill required fields first");
     } else if (user.cpassword === user.password) {
       const authentication = getAuth();
+      setLoading(true);
       createUserWithEmailAndPassword(authentication, user.email, user.password)
         .then((response) => {
           navigate("/signup-step-3");
@@ -53,22 +58,20 @@ function LoginFirst() {
             "Auth Token",
             response._tokenResponse.refreshToken
           );
+          setLoading(false);
           navigate("/signup-step-3");
         })
         .catch((error) => {
           if (error.code === "auth/email-already-in-use") {
             toast.error("Email Already in Use");
+            setLoading(false);
           }
         });
     } else {
       toast.error("Password 1 and Password 2 does not match");
+      setLoading(false);
     }
   };
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
   return (
     <>
       <ToastContainer
@@ -83,6 +86,11 @@ function LoginFirst() {
         pauseOnHover
         theme="light"
       />
+      {(() => {
+        if (loading) {
+          return <PreLoader />;
+        }
+      })()}
       <div className="form-container">
         <form className="custom-form" noValidate onSubmit={handleSubmit}>
           <h3> Register - 1 / 2 </h3>{" "}

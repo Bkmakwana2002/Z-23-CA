@@ -5,7 +5,7 @@ import Image from "./css/profile.webp";
 import Leaderboard from "./Leaderboard";
 import Profile from "./Profile";
 
-const Profile_main = () => {
+const Profile_main = (props) => {
   const values = [
     { id: 1, text: "PROFILE" },
     { id: 2, text: "LEADERBOARD" },
@@ -18,6 +18,7 @@ const Profile_main = () => {
         <div className="profile-tabs">
           {values.map((val) => (
             <button
+              key={val.id}
               onClick={() => setActive(val.id)}
               className={`${isActive === val.id ? "active" : ""}`}
             >
@@ -28,7 +29,7 @@ const Profile_main = () => {
         <div className="main-content">
           <div className="profile-data-main">
             <div className={`${isActive === values[0].id ? "yes" : "no"}`}>
-              <Profile />
+              <Profile email={props.email} />
             </div>
             <div className={`${isActive === values[1].id ? "yes1" : "no1"}`}>
               <Leaderboard />
