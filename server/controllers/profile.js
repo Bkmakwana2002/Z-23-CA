@@ -9,7 +9,6 @@ exports.addUserDetail = (req, res) => {
         const userJson = {
             name: req.body.name,
             email: req.body.email,
-            // pic: req.body.pic,
             idCard: req.body.idCard,
             dob: req.body.dob,
             YearOfPassing: req.body.YearOfPassing,
