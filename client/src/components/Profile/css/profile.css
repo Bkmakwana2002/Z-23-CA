@@ -11,7 +11,7 @@
     align-items: flex-start;
     flex-direction: row;
     width: 100%;
-    color: #fff;
+    color: var(--light-primary);
     font-family: "Poppins";
     user-select: none;
 }
@@ -23,7 +23,7 @@
 }
 
 .profile>.divider {
-    background-color: violet;
+    background-color: var(--heaven-primary);
     opacity: 0.5;
     padding: 0.3px;
     height: 200px;
@@ -50,7 +50,7 @@
 
 .profile>.profile-left>.profile-personal-details>.profile-personal-details-head>h1::first-letter,
 .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1::first-letter {
-    color: violet;
+    color: var(--heaven-primary);
     font-weight: 900;
     font-family: cursive;
 }
@@ -64,7 +64,7 @@
     width: 20%;
     height: 2px;
     border-radius: 16px;
-    background-color: violet;
+    background-color: var(--heaven-primary);
 }
 
 .profile>.profile-left>.profile-personal-details>.profile-personal-details-content,
@@ -110,7 +110,7 @@
 
 .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li>.id,
 .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.id {
-    color: violet;
+    color: var(--heaven-primary);
     font-weight: 900;
 }
 
@@ -129,7 +129,7 @@
     border-radius: 0 !important;
     overflow: hidden;
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: var(--light-primary);
     opacity: 0.7;
 }
 
@@ -149,7 +149,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: row;
     padding: 10px 0;
 }
 
@@ -160,14 +159,14 @@
     background: rgba(255, 255, 255, 0.05);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid violet;
+    border: 1px solid var(--heaven-primary);
 }
 
 .profile>.profile-right>.profile-refferal-section>.refferal-copy {
     background: rgba(255, 255, 255, 0.05);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid violet;
+    border: 1px solid var(--heaven-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,15 +186,15 @@
     .profile>.profile-left,
     .profile>.profile-right {
         width: 100%;
-        padding: 20px;
+        padding: 10px;
     }
     .profile>.divider {
-        background-color: violet;
+        background-color: var(--heaven-primary);
         opacity: 0.5;
         padding: 1px;
         height: 0;
         width: 100px;
-        margin: 20px 0;
+        margin: 10px 0;
         border-radius: 16px;
     }
     .profile>.profile-left>.profile-personal-details,
@@ -204,7 +203,7 @@
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-head>h1,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 400;
         position: relative;
         display: flex;
@@ -213,7 +212,7 @@
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-head>h1::first-letter,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1::first-letter {
-        color: violet;
+        color: var(--heaven-primary);
         font-weight: 900;
         font-family: cursive;
     }
@@ -226,29 +225,29 @@
         width: 20%;
         height: 2px;
         border-radius: 16px;
-        background-color: violet;
+        background-color: var(--heaven-primary);
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         flex-direction: column;
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         width: 100%;
         transform: unset;
-        padding: 0px 10px;
+        padding: 0px 5px;
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li>*,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>* {
@@ -256,20 +255,22 @@
         justify-content: center;
         align-items: center;
         flex-direction: row;
-        padding: 2px 10px;
+        padding: 2px 5px;
         transform: unset;
+        flex-wrap: wrap;
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li>.id,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.id {
-        color: violet;
+        color: var(--heaven-primary);
         font-weight: 900;
+        margin-left: 0px;
     }
     .profile>.profile-right {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 20px 30px;
+        padding: 10px 10px;
     }
     .profile>.profile-right>.profile-refferal-section {
         display: flex;
@@ -277,6 +278,21 @@
         align-items: center;
         flex-direction: row;
         padding: 10px 0;
+    }
+    .isVarified {
+        padding: "2px 5px";
+        font-size: "0.7rem";
+        font-weight: "800";
+        min-width: "60px";
+        border-radius: "16px";
+        background: "#0984e3";
+        backdrop-filter: "blur(10px)";
+        border: " 1px solid rgba(255,255,255,0.05)";
+        margin: "0 5px";
+        display: "flex";
+        justify-content: "center";
+        align-items: "center";
+        cursor: "pointer";
     }
 }
 
@@ -286,7 +302,7 @@
 
 .active-edit {
     background-color: #fff !important;
-    color: rgb(110, 0, 110);
+    color: rgb(0, 110, 31);
     font-weight: 600;
     border-radius: 1.1rem;
     padding: 0px 5px;

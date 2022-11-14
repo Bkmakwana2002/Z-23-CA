@@ -5,7 +5,7 @@
 }
 
 .icon-colour {
-    color: #4c02cc !important;
+    color: var(--heaven-primary) !important;
 }
 
 
@@ -14,7 +14,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Island+Moments&display=swap");
 .home-container {
-    background-color: black;
+    background-color: var(--background-primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,18 +22,27 @@
     flex-direction: row;
     flex-wrap: wrap;
     height: 100vh;
-    background-image: url("https://getwallpapers.com/wallpaper/full/e/7/3/535426.jpg");
+    /* background-image: url("https://getwallpapers.com/wallpaper/full/e/7/3/535426.jpg"); */
+    background-image: url("../../Assets/bg-landing-page.png");
+    background-color: transparent;
     /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 89%); */
     background-size: cover;
+    background-position: center;
     background-attachment: fixed;
 }
 
 .home-container>.home-content {
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background: rgba(0, 0, 0, 0.451);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    height: 70vh;
 }
 
 .home-container>.home-content>.header {
@@ -42,7 +51,8 @@
 
 .home-container>.home-content>.header>h1 {
     font-family: "Island Moments";
-    font-size: 10rem;
+    font-size: 12rem;
+    color: var(--light-primary);
     -webkit-animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
     animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
@@ -50,6 +60,7 @@
 .home-container>.home-content>.subheader {
     font-family: "Mulish";
     padding: 20px 0px;
+    color: var(--light-primary);
 }
 
 .home-container>.home-content>.subheader>h1 {
@@ -57,14 +68,14 @@
 }
 
 .home-container>.home-content>.header>h1::first-letter {
-    color: yellow;
+    color: var(--hell-primary);
 }
 
 .home-container>.home-content>.registration-btn>a {
-    background-image: linear-gradient( to right, #1d2b64 0%, #8748d8 51%, #1d2b64 100%);
+    background-image: linear-gradient( to right, var(--hell-primary) 0%, var(--heaven-primary) 51%, var(--hell-primary) 100%);
     padding: 15px 40px;
     text-decoration: none;
-    color: #f7f1e3;
+    color: var(--heaven-primary);
     transition: 0.5s ease;
     display: inline-block;
     -webkit-transform: skewX(-10deg);
@@ -82,27 +93,27 @@
     left: -5px;
     width: 60%;
     height: 50%;
-    border-top: 1px solid rgb(78, 0, 160);
-    border-left: 1px solid rgb(78, 0, 160);
+    border-top: 1px solid var(--hell-primary);
+    border-left: 1px solid var(--hell-primary);
     transition: 0.5s ease;
 }
 
 .home-container>.home-content>.registration-btn>a:hover::before {
     width: 80%;
     height: 70%;
-    border-color: #fff;
+    border-color: var(--heaven-primary);
 }
 
 .home-container>.home-content>.registration-btn>a:hover {
     background-position: right center;
     /* change the direction of the change here */
-    color: #fff;
+    color: var(--light-primary);
 }
 
 @media screen and (max-width: 799px) {
     .home-container {
         padding: 10px 50px;
-        color: #fff;
+        color: var(--light-primary);
     }
     .home-container>.home-content {
         width: 100%;
@@ -116,7 +127,7 @@
     }
     .home-container>.home-content>.header>h1 {
         font-family: "Island Moments";
-        font-size: 5rem;
+        font-size: 6rem;
         -webkit-animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
         animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
     }
@@ -203,13 +214,13 @@
 }
 
 .home-offers>.offers-header>h1 {
-    color: #fff;
+    color: var(--light-primary);
     font-size: 3rem;
     font-family: "Mulish";
 }
 
 .home-offers>.offers-header>h1::first-letter {
-    color: violet;
+    color: var(--hell-primary);
     font-family: cursive;
 }
 
@@ -251,22 +262,27 @@
 .swiper-slide>.slide-container>.slide-img {
     border-radius: 16px;
     overflow: hidden;
+    height: 300px;
+}
+
+.swiper-slide>.slide-container>.slide-img>img {
+    height: 100%;
 }
 
 .swiper-slide>.slide-container>.main-content {
     padding: 10px 20px;
-    color: #fff;
+    color: var(--light-primary);
 }
 
 .swiper-slide>.slide-container>.main-content>.content-header>h1 {
     font-size: 2rem;
     font-family: "Mulish";
-    color: #fff;
+    color: var(--light-primary);
 }
 
 .swiper-slide>.slide-container>.main-content>.content-header>h1::first-letter {
     font-family: cursive;
-    color: #c400de;
+    color: var(--hell-primary);
 }
 
 .swiper-slide>.slide-container>.main-content>.content-text {
@@ -292,16 +308,16 @@
     }
     .swiper-slide>.slide-container>.main-content {
         padding: 10px 20px;
-        color: #fff;
+        color: var(--light-primary);
     }
     .swiper-slide>.slide-container>.main-content>.content-header>h1 {
         font-size: 1.2rem;
         font-family: "Mulish";
-        color: #fff;
+        color: var(--light-primary);
     }
     .swiper-slide>.slide-container>.main-content>.content-header>h1::first-letter {
         font-family: cursive;
-        color: #c400de;
+        color: var(--hell-primary);
     }
     .swiper-slide>.slide-container>.main-content>.content-text {
         max-height: 100px;

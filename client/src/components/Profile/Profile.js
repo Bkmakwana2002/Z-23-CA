@@ -272,7 +272,7 @@ const Profile = (props) => {
                               }}
                               onClick={SendVarificationEmail}
                             >
-                              <span class="material-symbols-outlined">
+                              <span className="material-symbols-outlined">
                                 warning
                               </span>
                               Verify Email
@@ -299,7 +299,7 @@ const Profile = (props) => {
                                 cursor: "pointer",
                               }}
                             >
-                              <span class="material-symbols-outlined">
+                              <span className="material-symbols-outlined">
                                 done_all
                               </span>
                               Email Sent
@@ -316,13 +316,13 @@ const Profile = (props) => {
         </div>
         <div className="divider"></div>
         <div className="profile-right">
-          <div className="profile-image">
+          {/* <div className="profile-image">
             <img
               src="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659652_960_720.png"
               alt=""
               srcSet=""
             />
-          </div>
+          </div> */}
           <div className="profile-id-card">
             {(() => {
               if (id_card) {
@@ -354,6 +354,7 @@ const Profile = (props) => {
               <span className="material-symbols-outlined">content_copy</span>
             </div>
           </div>
+          <small>Refferal Code</small>
         </div>
       </div>
     </>

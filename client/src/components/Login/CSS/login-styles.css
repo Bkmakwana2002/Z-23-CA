@@ -23,7 +23,7 @@
 
 .form-container>.custom-form * {
     font-family: "Poppins", sans-serif;
-    color: #ffffff;
+    color: var(--light-primary);
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -38,7 +38,7 @@
 
 .form-container>.custom-form h3::first-letter {
     font-family: cursive;
-    color: violet;
+    color: var(--heaven-primary);
 }
 
 .form-container>.custom-form>label {
@@ -67,18 +67,18 @@
 }
 
 .form-container>.custom-form>input::placeholder {
-    color: #e5e5e5;
+    color: var(--light-primary);
 }
 
 .form-container>.custom-form>button {
-    background-image: linear-gradient( to right, #000000 0%, #53346d 51%, #000000 100%);
+    background-image: linear-gradient( to right, #000000 0%, #345b6d 51%, #000000 100%);
     padding: 15px 45px;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;
+    color: var(--light-primary);
     border-radius: 5px;
     display: block;
     margin-top: 20px;
@@ -89,7 +89,7 @@
 .form-container>.custom-form>button:hover {
     background-position: right center;
     /* change the direction of the change here */
-    color: #fff;
+    color: var(--light-primary);
     text-decoration: none;
 }
 
@@ -99,13 +99,13 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    color: #fff;
+    color: var(--light-primary);
 }
 
 .form-container>.custom-form>.seprate-div>div {
     height: 1px;
     width: 30px;
-    background-color: #fff;
+    background-color: var(--light-primary);
     margin: 0 10px;
 }
 
@@ -116,12 +116,12 @@
 }
 
 .form-container>.custom-form>.social a {
-    background: red;
+    background: var(--hell-primary);
     width: 40%;
     border-radius: 3px;
     padding: 5px 10px 10px 5px;
     background-color: rgba(255, 255, 255, 0.27);
-    color: #eaf0fb;
+    color: var(--light-primary);
     text-align: center;
     display: flex;
     justify-content: center;
@@ -150,7 +150,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color: rgba(238, 130, 238, 0.605);
+    color: rgba(238, 130, 130, 0.605);
 }
 
 .form-container>.custom-form>small>a {

@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import "./home-style.css";
 // import required modules
-import { EffectCoverflow } from "swiper";
+import { EffectCoverflow, Autoplay } from "swiper";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import perksData from "./DATA/perksData";
+import CA from "./ca-perks-img/CA.png";
+import img1 from "./ca-perks-img/Certificate.png";
 
 function Home3() {
   const [windowDimenion, detectHW] = useState({
@@ -47,6 +50,11 @@ function Home3() {
             grabCursor={true}
             centeredSlides={true}
             slidesPerView={SlidesView}
+            loop={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             coverflowEffect={{
               rotate: 60,
               stretch: 0,
@@ -54,141 +62,33 @@ function Home3() {
               modifier: 1,
               slideShadows: false,
             }}
-            modules={[EffectCoverflow]}
+            modules={[Autoplay, EffectCoverflow]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <div className="slide-container">
-                <div className="slide-img">
-                  <img
-                    src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
-                    alt=""
-                    srcSet=""
-                  />
-                </div>
-                <div className="main-content">
-                  <div className="content-header">
-                    <h1>Free Entry</h1>
+            {perksData.slice(0).map((data) => (
+              <SwiperSlide key={data.id}>
+                <div className="slide-container">
+                  <div className="slide-img">
+                    <img
+                      src={require(`./ca-perks-img/${data.img}`)}
+                      alt=""
+                      srcSet=""
+                    />
                   </div>
-                  <div className="content-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Aut possimus tempore est neque in veritatis enim incidunt
-                    quod adipisci, accusantium ducimus. Quia assumenda modi fuga
-                    aspernatur alias eos repellat ea.
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slide-container">
-                <div className="slide-img">
-                  <img
-                    src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
-                    alt=""
-                    srcSet=""
-                  />
-                </div>
-                <div className="main-content">
-                  <div className="content-header">
-                    <h1>Free Entry</h1>
-                  </div>
-                  <div className="content-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Aut possimus tempore est neque in veritatis enim incidunt
-                    quod adipisci, accusantium ducimus. Quia assumenda modi fuga
-                    aspernatur alias eos repellat ea.
+                  <div className="main-content">
+                    <div className="content-header">
+                      <h1>{data.title}</h1>
+                    </div>
+                    <div className="content-text">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Aut possimus tempore est neque in veritatis enim incidunt
+                      quod adipisci, accusantium ducimus. Quia assumenda modi
+                      fuga aspernatur alias eos repellat ea.
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slide-container">
-                <div className="slide-img">
-                  <img
-                    src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
-                    alt=""
-                    srcSet=""
-                  />
-                </div>
-                <div className="main-content">
-                  <div className="content-header">
-                    <h1>Free Entry</h1>
-                  </div>
-                  <div className="content-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Aut possimus tempore est neque in veritatis enim incidunt
-                    quod adipisci, accusantium ducimus. Quia assumenda modi fuga
-                    aspernatur alias eos repellat ea.
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slide-container">
-                <div className="slide-img">
-                  <img
-                    src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
-                    alt=""
-                    srcSet=""
-                  />
-                </div>
-                <div className="main-content">
-                  <div className="content-header">
-                    <h1>Free Entry</h1>
-                  </div>
-                  <div className="content-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Aut possimus tempore est neque in veritatis enim incidunt
-                    quod adipisci, accusantium ducimus. Quia assumenda modi fuga
-                    aspernatur alias eos repellat ea.
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slide-container">
-                <div className="slide-img">
-                  <img
-                    src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
-                    alt=""
-                    srcSet=""
-                  />
-                </div>
-                <div className="main-content">
-                  <div className="content-header">
-                    <h1>Free Entry</h1>
-                  </div>
-                  <div className="content-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Aut possimus tempore est neque in veritatis enim incidunt
-                    quod adipisci, accusantium ducimus. Quia assumenda modi fuga
-                    aspernatur alias eos repellat ea.
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slide-container">
-                <div className="slide-img">
-                  <img
-                    src="https://ca.thomso.in/static/media/ilu4.09f2c3e53ba6d771e49a.png"
-                    alt=""
-                    srcSet=""
-                  />
-                </div>
-                <div className="main-content">
-                  <div className="content-header">
-                    <h1>Free Entry</h1>
-                  </div>
-                  <div className="content-text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Aut possimus tempore est neque in veritatis enim incidunt
-                    quod adipisci, accusantium ducimus. Quia assumenda modi fuga
-                    aspernatur alias eos repellat ea.
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

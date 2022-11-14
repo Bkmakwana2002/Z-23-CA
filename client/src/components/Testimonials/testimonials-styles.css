@@ -60,22 +60,22 @@ figure.snip1390 h4 {
 }
 
 figure.snip1390 h2 {
-    color: #ffffff;
+    color: var(--light-primary);
 }
 
 figure.snip1390 h4 {
-    color: #a6a6a6;
+    color: var(--light-primary);
 }
 
 figure.snip1390 blockquote {
     font-size: 1em;
-    color: #fff;
+    color: var(--light-primary);
     padding: 45px 20px 40px 50px;
     margin-top: 30px;
     background-color: transparent;
     border-radius: 16px;
     text-align: left;
-    border: 1px solid rgb(144, 27, 144);
+    border: 1px solid var(--hell-primary);
     position: relative;
 }
 
@@ -110,5 +110,5 @@ figure.snip1390 .profile {
 }
 
 .swiper-pagination-bullet-active {
-    background: violet;
+    background: var(--heaven-primary);
 }

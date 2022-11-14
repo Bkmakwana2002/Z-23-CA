@@ -10,13 +10,13 @@
 
 .home-about>.header>h1 {
     font-size: 3rem;
-    color: #fff;
+    color: var(--light-primary);
     font-weight: 400;
 }
 
 .home-about>.header>h1::first-letter {
     font-family: cursive;
-    color: violet;
+    color: var(--hell-primary);
 }
 
 .home-about>div>.main-content>.content {
@@ -25,13 +25,13 @@
     border-radius: 16px;
     /* background-image: url("./bg-main.svg"); */
     background-color: rgba(0, 0, 0, 0.073);
-    border: 0.1px solid rgba(238, 130, 238, 0.39);
+    border: 0.1px solid rgba(0, 204, 255, 0.39);
     background-size: cover;
 }
 
 .home-about>div>.main-content>.content>hr {
     width: 40%;
-    background-color: violet;
+    background-color: transparent;
     padding: 1px;
 }
 
@@ -50,7 +50,7 @@
 
 .home-about>div>.main-content>.content>.content-head>h1 {
     font-size: 2rem;
-    color: #fff;
+    color: var(--light-primary);
     text-transform: uppercase;
 }
 
@@ -62,21 +62,22 @@
 
 .home-about>div>.main-content>.content>.content-head>h1::first-letter {
     font-family: cursive;
-    color: violet;
+    color: var(--heaven-primary);
 }
 
 .home-about>div>.main-content {
     border-top: 2px dashed;
-    border-color: violet;
+    border-color: var(--hell-primary);
     margin: 0;
     padding: 30px;
-    color: violet;
+    color: var(--heaven-primary);
     width: 100%;
     display: flex;
     align-items: center;
 }
 
 .home-about>div>.main-content:nth-child(even) {
+    border-color: var(--hell-primary);
     border-left: 2px dashed;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
@@ -86,6 +87,7 @@
 }
 
 .home-about>div>.main-content:nth-child(odd) {
+    border-color: var(--hell-primary) !important;
     border-right: 2px dashed;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -95,12 +97,14 @@
 }
 
 .home-about>div>.main-content:first-child {
+    border-color: var(--hell-primary) !important;
     border-top: 0;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
 }
 
 .home-about>div>.main-content:last-child {
+    border-color: var(--hell-primary);
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
