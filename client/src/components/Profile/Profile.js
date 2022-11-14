@@ -2,7 +2,6 @@ import "./css/profile.css";
 import React, { useEffect, useState } from "react";
 import copy from "copy-to-clipboard";
 import { ToastContainer, toast } from "react-toastify";
-import idCard from "./css/idcard.jpg";
 import PreLoader from "../preloader/preloader";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -323,23 +322,6 @@ const Profile = (props) => {
               srcSet=""
             />
           </div> */}
-          <div className="profile-id-card">
-            {(() => {
-              if (id_card) {
-                return (
-                  <>
-                    <img src={id_card} alt="" srcSet="" />
-                  </>
-                );
-              } else {
-                return (
-                  <>
-                    <img src={idCard} alt="" srcSet="" />
-                  </>
-                );
-              }
-            })()}
-          </div>
           <div className="profile-refferal-section">
             <div className="refferal-content">
               <input

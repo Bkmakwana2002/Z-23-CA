@@ -1,7 +1,6 @@
 import { isValidElement } from "react";
 import { useState } from "react";
 import "./css/profile-main-styles.css";
-import Image from "./css/profile.webp";
 import Leaderboard from "./Leaderboard";
 import Profile from "./Profile";
 
