@@ -1,28 +1,19 @@
 /* Default Theme */
 
-:root {
+
+/* :root {
     --dark-primary: #2d3436;
     --light-primary: #dfe6e9;
     --heaven-primary: #27e9f0;
     --hell-primary: #ff0200;
-}
+} */
 
 
 /* Black and Red Theme */
 
-
-/* 
 :root {
-    --background-primary: #2d3436;
-    --background-secondary: #636e72;
-    --text-primary: #dfe6e9;
-    --text-secondary: #b2bec3;
-    --shade-red-primary: #d63031;
-    --shade-red-secondary: #ff7675;
-    --shade-yellow-primary: #fdcb6e;
-    --shade-yellow-secondary: #ffeaa7;
-    --shade-orange-primary: #e17055;
-    --shade-orange-secondary: #ff7675;
-    --shade-green-primary: #00b894;
-    --shade-green-secondary: #55efc4;
-} */
+    --dark-primary: #2d3436;
+    --light-primary: #dfe6e9;
+    --heaven-primary: #fff;
+    --hell-primary: rgb(223, 100, 223);
+}
