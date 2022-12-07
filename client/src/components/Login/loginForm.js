@@ -41,7 +41,6 @@ function LoginForm(props) {
     college: "",
     gender: "",
     state: "",
-    id_card: "",
     dob: "",
     phone: "",
     YearOfPassing: "",
