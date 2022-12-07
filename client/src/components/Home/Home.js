@@ -18,7 +18,7 @@ function Home(props) {
             </h1>
           </div>
           <div className="subheader">
-            <h1> Campus Aabassador Program</h1>
+            <h1> Campus Ambassador Program</h1>
           </div>
           {(() => {
             if (!props.email) {

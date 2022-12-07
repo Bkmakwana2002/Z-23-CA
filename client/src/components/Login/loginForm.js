@@ -1,20 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PreLoader from "../preloader/preloader";
-import { AiOutlineGoogle } from "react-icons/ai";
-import { Link } from "react-router-dom";
 import "./CSS/login-styles.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../firebase-config";
-import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
-import { v4 as uuidv4 } from "uuid";
+import AsyncCreatableSelect from "react-select/async-creatable";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Select from "react-select";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
+const options = [
+  { value: "Male", label: "Male" },
+  { value: "Female", label: "Female" },
+  { value: "Other", label: "Other" },
+];
 function LoginForm(props) {
   let navigate = useNavigate();
-  const [image, setImage] = useState(null);
-  const [url, setUrl] = useState();
-  const imageListRef = ref(storage, "ID_CARD/");
   const [loading, setLoading] = useState(false);
+  const LoadOptions = (inputValue) => {
+    return axios
+      .get(
+        `http://universities.hipolabs.com/search?name=${inputValue}&country=india`
+      )
+      .then((response) => {
+        const options = [];
+        response.data.forEach((d) => {
+          options.push({
+            label: d.name,
+            value: d.name,
+            college_name: d["name"] ? d["name"] : "",
+            state: d["state-province"] ? d["state-province"] : "",
+          });
+        });
+        return options;
+      });
+  };
   const [user, setUser] = useState({
     name: "",
     college: "",
@@ -30,13 +51,15 @@ function LoginForm(props) {
   };
   const handleSubmit = (e) => {
     setLoading(true);
+    if (!props.email) {
+      toast.error("Bad Request, Access Denied!");
+    }
     e.preventDefault();
     if (
       user.name === "" ||
       user.college === "" ||
       user.gender === "" ||
       user.state === "" ||
-      // user.id_card === "" ||
       user.dob === "" ||
       user.phone === "" ||
       user.YearOfPassing === ""
@@ -56,51 +79,37 @@ function LoginForm(props) {
           dob: user.dob,
           phone: user.phone,
           YearOfPassing: user.YearOfPassing,
-          idCard: url,
+          idCard: "",
         }),
       })
         .then((response) => response.json())
         .then((json) => {
-          setUrl("");
           navigate("/profile");
         });
-      uploadImage();
       setLoading(false);
     }
   };
-
-  const uploadImage = () => {
-    if (image === null) {
-      return;
-    }
-    const imageRef = ref(storage, `ID_CARD/${image.name + uuidv4()}`);
-    uploadBytes(imageRef, image).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setUrl(url);
-      });
-    });
-    navigate("/");
-    console.log(url);
-  };
-
-  useEffect(() => {
-    listAll(imageListRef).then((res) => {
-      res.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setUrl(url);
-        });
-      });
-    });
-    console.log(url);
-  }, []);
-
-  {
-    (() => {
-      if (loading) {
-        return <PreLoader />;
-      }
-    })();
+  if (loading) {
+    return <PreLoader />;
   }
+  const handleSelected = (selectedOption) => {
+    setUser({
+      ...user,
+      college: selectedOption.college_name,
+      state: selectedOption.state,
+    });
+  };
+  const handleSelectedGender = (selectedOption) => {
+    setUser({
+      ...user,
+      gender: selectedOption.label,
+    });
+  };
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Date of Birth
+    </Tooltip>
+  );
   return (
     <>
       <div className="form-container">
@@ -115,14 +124,15 @@ function LoginForm(props) {
             onChange={(e) => onInputChange(e)}
             required
           />
-          <input
-            type="text"
-            placeholder="College name"
-            id="college name"
-            name="college"
-            value={user.college}
-            onChange={(e) => onInputChange(e)}
-            required
+          <AsyncCreatableSelect
+            className="college-select"
+            placeholder="College Name"
+            loadOptions={LoadOptions}
+            onChange={handleSelected}
+            styles={colourStyles}
+            components={{
+              IndicatorSeparator: () => null,
+            }}
           />
           <input
             type="text"
@@ -149,67 +159,65 @@ function LoginForm(props) {
             value={user.phone}
             onChange={(e) => onInputChange(e)}
           />
-          <div className="gender">
-            <div>Gender :</div>
+          <Select
+            className="college-select"
+            classNamePrefix="select"
+            name="gender"
+            options={options}
+            styles={colourStyles}
+            onChange={handleSelectedGender}
+            placeholder="Gender"
+            components={{
+              IndicatorSeparator: () => null,
+            }}
+          />
+          <OverlayTrigger
+            placement="left"
+            delay={{ show: 250, hide: 400 }}
+            overlay={renderTooltip}
+          >
             <input
-              type="radio"
-              id="male"
-              name="gender"
-              value="male"
-              onChange={(e) => onInputChange(e)}
-              required
-            />{" "}
-            <label for="gender">Male</label>
-            <br />
-            <input
-              type="radio"
-              id="gender"
-              name="gender"
-              value="female"
-              onChange={(e) => onInputChange(e)}
-              required
-            />{" "}
-            <label for="gender">Female</label>
-            <br />{" "}
-            <input
-              type="radio"
-              id="gender"
-              name="gender"
-              value="other"
+              type="date"
+              placeholder="Date of Birth"
+              id="dob"
+              name="dob"
+              value={user.dob}
               onChange={(e) => onInputChange(e)}
               required
             />
-            <label for="gender">Other</label>
-          </div>
-          <input
-            type="date"
-            placeholder="D.O.B."
-            id="dob"
-            name="dob"
-            value={user.dob}
-            onChange={(e) => onInputChange(e)}
-            required
-          />
-          <label for="file">ID Card</label>
-          <input
-            type="file"
-            id="id_card"
-            name="id_card"
-            url={url}
-            accept="ID_CARD/*"
-            onChange={(e) => {
-              setImage(e.target.files[0]);
-            }}
-            required
-          />
+          </OverlayTrigger>
           <button type="submit"> Finish </button>{" "}
-          {/* <small>
-            <Link to={"/profile"}>Varify Later</Link>
-          </small> */}
+          <small>
+            <Link to={"/profile"}>Have you filled already? Click here!</Link>
+          </small>
         </form>
       </div>
     </>
   );
 }
-
+const colourStyles = {
+  control: (styles) => ({
+    ...styles,
+    backgroundColor: "transparent",
+    border: "none !important",
+    outline: "none !important",
+    boxShadow: "none",
+    width: "100%",
+    margin: "-10px",
+  }),
+  menu: (styles) => ({
+    ...styles,
+    background: "rgba(0,0,0,0.7)",
+    border: "1px solid rgba(0,0,0,0.1)",
+  }),
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    return {
+      ...styles,
+      backgroundColor: !(isFocused || isSelected) ? "transparent" : "violet",
+      color: isFocused || isSelected ? "black !important" : "#fff !important",
+      fontWeight: "600 !important",
+      cursor: isDisabled ? "not-allowed" : "default",
+    };
+  },
+};
 export default LoginForm;

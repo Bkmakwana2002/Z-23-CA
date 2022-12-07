@@ -50,12 +50,13 @@
 }
 
 .form-container>.custom-form>input,
+.college-select,
 .form-container>.custom-form>.gender {
     display: flex;
     height: 50px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 0 10px;
     margin-top: 16px;
     font-size: 14px;
@@ -79,7 +80,7 @@
     transition: 0.5s;
     background-size: 200% auto;
     color: var(--light-primary);
-    border-radius: 5px;
+    border-radius: 10px;
     display: block;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -118,7 +119,7 @@
 .form-container>.custom-form>.social a {
     background: var(--hell-primary);
     width: 40%;
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 5px 10px 10px 5px;
     background-color: rgba(255, 255, 255, 0.27);
     color: var(--light-primary);
@@ -127,6 +128,12 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
+}
+
+@media screen and (max-width: 799px) {
+    .form-container>.custom-form>.social>a>span {
+        font-size: 0.9rem;
+    }
 }
 
 .form-container>.custom-form>.social a:hover {
@@ -169,4 +176,10 @@
 
 .form-container>.custom-form>input[type="file"] {
     padding-top: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: rgba(255, 255, 255, 0.379);
+    padding: 5px;
+    border-radius: 10px;
 }

@@ -4,6 +4,7 @@ import "./css/profile-main-styles.css";
 import Image from "./css/profile.webp";
 import Leaderboard from "./Leaderboard";
 import Profile from "./Profile";
+import LoaderProfile from "./loader-profile";
 
 const Profile_main = (props) => {
   const values = [
@@ -11,32 +12,70 @@ const Profile_main = (props) => {
     { id: 2, text: "LEADERBOARD" },
     { id: 3, text: "CA GUIDE" },
   ];
+  const [loading, setLoading] = useState(true);
   const [isActive, setActive] = useState(1);
+  const handleTabs = (val) => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 50);
+    setActive(val);
+    setLoading(false);
+  };
   return (
     <div className="profile-main">
       <div className="profile-card">
         <div className="profile-tabs">
+          {" "}
           {values.map((val) => (
             <button
               key={val.id}
-              onClick={() => setActive(val.id)}
+              onClick={() => handleTabs(val.id)}
               className={`${isActive === val.id ? "active" : ""}`}
             >
-              {val.text}
+              {val.text}{" "}
             </button>
-          ))}
-        </div>
+          ))}{" "}
+        </div>{" "}
         <div className="main-content">
           <div className="profile-data-main">
-            <div className={`${isActive === values[0].id ? "yes" : "no"}`}>
-              <Profile email={props.email} isVarified={props.isVarified} />
-            </div>
-            <div className={`${isActive === values[1].id ? "yes1" : "no1"}`}>
-              <Leaderboard />
-            </div>
-          </div>
-        </div>
-      </div>
+            {" "}
+            {(() => {
+              if (!loading) {
+                return (
+                  <>
+                    <div className="yes1">
+                      <LoaderProfile />
+                    </div>{" "}
+                  </>
+                );
+              } else {
+                return (
+                  <>
+                    <div
+                      className={`${isActive === values[0].id ? "yes" : "no"}`}
+                    >
+                      <Profile
+                        email={props.email}
+                        isVarified={props.isVarified}
+                      />{" "}
+                    </div>{" "}
+                    <div
+                      className={`${
+                        isActive === values[1].id ? "yes1" : "no1"
+                      }`}
+                    >
+                      <Leaderboard
+                        email={props.email}
+                        isVarified={props.isVarified}
+                      />{" "}
+                    </div>{" "}
+                  </>
+                );
+              }
+            })()}{" "}
+          </div>{" "}
+        </div>{" "}
+      </div>{" "}
     </div>
   );
 };

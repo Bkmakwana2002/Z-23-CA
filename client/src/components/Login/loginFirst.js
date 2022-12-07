@@ -29,11 +29,11 @@ function LoginFirst() {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
-        const user = result.user;
+        // const user = result.user;
         sessionStorage.setItem("Auth Token", token);
         toast.success("Account Created Successfully");
         setLoading(false);
-        navigate("/signup-step-3");
+        navigate("/signup-step-2");
         // ...
       })
       .catch((error) => {
@@ -126,7 +126,7 @@ function LoginFirst() {
           <div className="social">
             <Link className="fb" onClick={registerGoogle}>
               <img src={Google} alt="" srcSet="" />
-              Register with Google{" "}
+              <span>Register with Google</span>
             </Link>{" "}
           </div>{" "}
           <small

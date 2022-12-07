@@ -5,6 +5,10 @@
 
 /* Profile Section */
 
+:root {
+    --btn-size: 0.6rem;
+}
+
 .profile {
     display: flex;
     justify-content: flex-start;
@@ -14,19 +18,33 @@
     color: var(--light-primary);
     font-family: "Poppins";
     user-select: none;
+    animation: myAnm-profile 1s ease 1 both;
 }
 
-.profile>.profile-left,
+@keyframes myAnm-profile {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.profile>.profile-left {
+    max-width: 640px;
+    padding: 20px;
+}
+
 .profile>.profile-right {
-    width: 440px;
+    max-width: 340px;
     padding: 20px;
 }
 
 .profile>.divider {
     background-color: var(--heaven-primary);
     opacity: 0.5;
-    padding: 0.3px;
-    height: 200px;
+    padding: 0.6px;
+    height: 250px;
     margin: 20px 0;
     border-radius: 16px;
 }
@@ -50,7 +68,7 @@
 
 .profile>.profile-left>.profile-personal-details>.profile-personal-details-head>h1::first-letter,
 .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1::first-letter {
-    color: var(--heaven-primary);
+    color: violet;
     font-weight: 900;
     font-family: cursive;
 }
@@ -92,7 +110,7 @@
     padding: 0px 10px;
 }
 
-.profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.value>input[type="text"] {
+.profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.value>input[type="number"] {
     background-color: transparent;
     outline: none;
     max-width: 140px;
@@ -141,6 +159,37 @@
     margin: 10px 0;
 }
 
+.profile>.profile-right>.ca-points {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile>.profile-right>.ca-points>ul {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.025);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.profile>.profile-right>.ca-points>ul>li {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.profile>.profile-right>.ca-points>ul>li>.id {
+    margin-right: 10px;
+    font-weight: 900;
+}
+
 .profile>.profile-right>.profile-id-card>img {
     width: 300px;
 }
@@ -179,36 +228,54 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        width: 100%;
-        overflow: auto;
+        flex-direction: column-reverse;
+        font-size: 0.8rem;
+        width: fit-content;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
-    .profile>.profile-left,
+    .profile>.profile-left {
+        width: 100%;
+        padding: 10px 0;
+    }
     .profile>.profile-right {
         width: 100%;
-        padding: 10px;
+        padding: 0;
     }
     .profile>.divider {
         background-color: var(--heaven-primary);
         opacity: 0.5;
-        padding: 1px;
-        height: 0;
-        width: 100px;
-        margin: 10px 0;
+        padding: 0.6px;
+        width: 250px;
+        height: 0.1px;
+        margin: 20px 0;
         border-radius: 16px;
     }
     .profile>.profile-left>.profile-personal-details,
     .profile>.profile-left>.profile-contact-info {
         padding: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-head>h1,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 400;
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+    }
+    .profile>.profile-left>.profile-personal-details>.profile-personal-details-head,
+    .profile>.profile-left>.profile-contact-info>.profile-contact-details-head {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-head>h1::first-letter,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1::first-letter {
@@ -220,7 +287,7 @@
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1::before {
         content: "";
         position: absolute;
-        left: unset;
+        left: 0;
         bottom: -5px;
         width: 20%;
         height: 2px;
@@ -230,8 +297,9 @@
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
+        flex-wrap: nowrap !important;
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul {
@@ -245,54 +313,110 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        width: 100%;
-        transform: unset;
-        padding: 0px 5px;
+        width: auto;
+        transform: translateX(5px);
+        padding: 0px 10px;
     }
-    .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li>*,
-    .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>* {
+    .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.value>input[type="number"] {
+        background-color: transparent;
+        outline: none;
+        max-width: 80px;
+    }
+    .profile>.profile-left>.profile-contact-info>.profile-contact-details-content {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: row;
-        padding: 2px 5px;
-        transform: unset;
-        flex-wrap: wrap;
+        padding: 2px 0px;
+        transform: translateX(0px);
     }
     .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li>.id,
     .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.id {
         color: var(--heaven-primary);
         font-weight: 900;
-        margin-left: 0px;
+        flex-wrap: nowrap !important;
+    }
+    .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li {
+        flex-wrap: wrap !important;
     }
     .profile>.profile-right {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 10px 10px;
+        padding: 20px 30px;
     }
-    .profile>.profile-right>.profile-refferal-section {
+    /* .profile>.profile-right>.profile-image {
+        width: 80px;
+        height: auto;
+        overflow: hidden;
+        border-radius: 0 !important;
+        overflow: hidden;
+        margin-bottom: 20px;
+        background-color: var(--light-primary);
+        opacity: 0.7;
+    } */
+    /* .profile>.profile-right>.profile-id-card {
+        width: 200px;
+        overflow: auto;
+        border-radius: 1.1ex;
+        opacity: 0.7;
+        margin: 10px 0;
+    } */
+    .profile>.profile-right>.ca-points {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .profile>.profile-right>.ca-points>ul {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.05);
+        -webkit-backdrop-filter: blur(25px);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.025);
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .profile>.profile-right>.ca-points>ul>li {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
         flex-direction: row;
+    }
+    .profile>.profile-right>.ca-points>ul>li>.id {
+        margin-right: 10px;
+        font-weight: 900;
+    }
+    .profile>.profile-right>.profile-id-card>img {
+        width: 300px;
+    }
+    .profile>.profile-right>.profile-refferal-section {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
         padding: 10px 0;
     }
-    .isVarified {
-        padding: "2px 5px";
-        font-size: "0.7rem";
-        font-weight: "800";
-        min-width: "60px";
-        border-radius: "16px";
-        background: "#0984e3";
-        backdrop-filter: "blur(10px)";
-        border: " 1px solid rgba(255,255,255,0.05)";
-        margin: "0 5px";
-        display: "flex";
-        justify-content: "center";
-        align-items: "center";
-        cursor: "pointer";
+    .profile>.profile-right>.profile-refferal-section>.refferal-content>input[type="text"] {
+        border: none;
+        outline: none;
+        padding: 10px 10px;
+        background: rgba(255, 255, 255, 0.05);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--heaven-primary);
+    }
+    .profile>.profile-right>.profile-refferal-section>.refferal-copy {
+        background: rgba(255, 255, 255, 0.05);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--heaven-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 7.5px;
+        cursor: pointer;
     }
 }
 

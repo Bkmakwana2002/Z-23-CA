@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PreLoader from "../preloader/preloader";
-import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./CSS/login-styles.css";
 import { getAuth } from "firebase/auth";
@@ -11,16 +10,17 @@ import "react-toastify/dist/ReactToastify.css";
 function ForgotPassowrd() {
   const auth = getAuth();
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState(null);
-  const [sendPasswordResetEmail, sending, error] =
-    useSendPasswordResetEmail(auth);
+  const [email, setEmail] = useState("");
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const handleResetPassword = async (e) => {
     e.preventDefault();
     setLoading(true);
     if (!email) {
       toast.error("Fill required field first");
     } else {
-      toast.info("Email has been sent");
+      toast.info(
+        "Email sent successfully. Please check promotions or spam folder"
+      );
       setLoading(false);
       await sendPasswordResetEmail(email);
     }

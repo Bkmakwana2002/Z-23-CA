@@ -8,16 +8,19 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0");
 .sticky {
-    background-color: var(--dark-primary) !important;
+    /* background-color: var(--dark-primary) !important;*/
     transition: all 0.3s ease-out 0s !important;
-    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
-    backdrop-filter: blur(15px) !important;
+    /* box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+    backdrop-filter: blur(15px) !important; */
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
 }
 
 .navbar {
     position: fixed !important;
     transition: all 0.3s ease-out 0s !important;
-    padding: 0.3rem 2rem !important;
+    padding: 0.5rem 1rem !important;
     font-size: 1.2rem !important;
 }
 
@@ -29,7 +32,7 @@
 
 .navbar-toggler span {
     display: block !important;
-    background-color: var(--heaven-primary) !important;
+    background-color: var(--hell-primary) !important;
     height: 4px !important;
     width: 27px !important;
     margin-top: 5px !important;
@@ -102,6 +105,7 @@
     border-radius: 16px;
     padding: 5px 10px;
     margin-left: 5px;
+    max-height: 50px;
 }
 
 .logo {

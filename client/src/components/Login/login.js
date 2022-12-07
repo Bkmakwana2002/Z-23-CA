@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { provider } from "../../firebase-config";
 import PreLoader from "../preloader/preloader";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 function Login() {
   const [loading, setLoading] = useState(false);
@@ -34,7 +33,7 @@ function Login() {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
-        const user = result.user;
+        // const user = result.user;
         sessionStorage.setItem("Auth Token", token);
         toast.success("Loggedin  Successfully");
         // ...
@@ -118,10 +117,10 @@ function Login() {
             Or
             <div />
           </div>
-          <div class="social">
-            <Link class="fb" onClick={loginGoogle}>
+          <div className="social">
+            <Link className="fb" onClick={loginGoogle}>
               <img src={Google} alt="" srcSet="" />
-              Sign In with Google
+              <span> Sign In with Google</span>
             </Link>
           </div>
           <small>

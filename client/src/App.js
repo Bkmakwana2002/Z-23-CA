@@ -1,5 +1,4 @@
 import "./App.css";
-import { useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Preloader from "./components/preloader/Pre";
 import Navbar from "./components/Navbar/Navbar";
@@ -14,11 +13,9 @@ import {
 import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PreLoader from "./components/preloader/preloader";
 import Login from "./components/Login/login";
 import LoginFirst from "./components/Login/loginFirst";
 import LoginForm from "./components/Login/loginForm";
-import LoginOtp from "./components/Login/fillOtp";
 import { app } from "./firebase-config";
 import { getAuth } from "firebase/auth";
 
@@ -40,7 +37,6 @@ function App(props) {
     const auth = getAuth();
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        console.log("userAuth", userAuth);
         setEmail(userAuth.email);
         setName(userAuth.displayName);
         setVarified(userAuth.emailVerified);
@@ -66,7 +62,6 @@ function App(props) {
                 <>
                   <Route path="/login" element={<Login />} />{" "}
                   <Route path="/signup" element={<LoginFirst />} />{" "}
-                  <Route path="/signup-step-2" element={<LoginOtp />} />{" "}
                   <Route path="/forgot-password" element={<ForgotPassowrd />} />{" "}
                 </>
               );
@@ -86,7 +81,7 @@ function App(props) {
               );
             }
           })()}
-          <Route path="/signup-step-3" element={<LoginForm email={email} />} />{" "}
+          <Route path="/signup-step-2" element={<LoginForm email={email} />} />{" "}
           <Route path="*" element={<Navigate to="/" />} />{" "}
         </Routes>{" "}
         <Footer />
