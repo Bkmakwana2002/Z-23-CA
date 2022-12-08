@@ -22,6 +22,7 @@ exports.addUserDetail = (req, res) => {
         console.log("updated successfully");
         res.status(200).json(response);
     } catch (error) {
+        console.log(error.message);
         res.status(500).send(error.message);
     }
 }
@@ -39,7 +40,7 @@ exports.getUserDetail = async(req, res) => {
         })
         if (temp === undefined || temp === null) { res.status(400).json("not found") }
     } catch (error) {
-        console.log("error");
+        console.log(error);
         res.status(500).send(error);
     }
 }
@@ -50,7 +51,7 @@ exports.leaderBoard = async(req, res) => {
         const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         res.status(200).send(list);
     } catch (error) {
-        console.log("error");
+        console.log(error);
         res.status(500).send(error);
     }
 }
@@ -59,7 +60,7 @@ exports.phoneUpdate = async(req, res) => {
         db.collection("CA").doc(req.body.email).update({ 'phone': req.body.phone });
         res.status(200).send("Phone Updated successfully");
     } catch (error) {
-        console.log("error");
+        console.log(error);
         res.status(404).send(error);
     }
 }

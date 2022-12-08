@@ -8,6 +8,8 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 import React, { useEffect, useState } from "react";
+import testmonialsData from "./DATA/testimonialsData";
+import TestimonialCard from "./testimonial_card";
 
 const Testimonials = () => {
   const [windowDimenion, detectHW] = useState({
@@ -31,17 +33,20 @@ const Testimonials = () => {
     if (windowDimenion.winWidth < 799) {
       setSlidesView(1);
     } else {
-      setSlidesView(1.8);
+      setSlidesView(3);
     }
   }, [windowDimenion]);
   return (
     <>
       <div className="main-div-testimonials">
+        <div className="testimonials-head">
+          <h1>Testimonials</h1>
+        </div>
         <Swiper
-          spaceBetween={30}
+          spaceBetween={10}
           centeredSlides={true}
           autoplay={{
-            delay: 2500,
+            delay: 10000,
             disableOnInteraction: false,
           }}
           slidesPerView={SlidesView}
@@ -53,91 +58,20 @@ const Testimonials = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <figure className="snip1390">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample3.jpg"
-                alt="profile-sample3"
-                className="profile"
-              />
-              <figcaption>
-                <h2>Eleanor Crisp</h2>
-                <h4>UX Design</h4>
-                <blockquote>
-                  Dad buried in landslide! Jubilant throngs fill streets!
-                  Stunned father inconsolable - demands recount!
-                </blockquote>
-              </figcaption>
-            </figure>
-          </SwiperSlide>
-          <SwiperSlide>
-            <figure className="snip1390">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample3.jpg"
-                alt="profile-sample3"
-                className="profile"
-              />
-              <figcaption>
-                <h2>Eleanor Crisp</h2>
-                <h4>UX Design</h4>
-                <blockquote>
-                  Dad buried in landslide! Jubilant throngs fill streets!
-                  Stunned father inconsolable - demands recount!
-                </blockquote>
-              </figcaption>
-            </figure>
-          </SwiperSlide>
-          <SwiperSlide>
-            <figure className="snip1390">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample3.jpg"
-                alt="profile-sample3"
-                className="profile"
-              />
-              <figcaption>
-                <h2>Eleanor Crisp</h2>
-                <h4>UX Design</h4>
-                <blockquote>
-                  Dad buried in landslide! Jubilant throngs fill streets!
-                  Stunned father inconsolable - demands recount!
-                </blockquote>
-              </figcaption>
-            </figure>
-          </SwiperSlide>
-          <SwiperSlide>
-            <figure className="snip1390">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample3.jpg"
-                alt="profile-sample3"
-                className="profile"
-              />
-              <figcaption>
-                <h2>Eleanor Crisp</h2>
-                <h4>UX Design</h4>
-                <blockquote>
-                  Dad buried in landslide! Jubilant throngs fill streets!
-                  Stunned father inconsolable - demands recount!
-                </blockquote>
-              </figcaption>
-            </figure>
-          </SwiperSlide>
-          <SwiperSlide>
-            <figure className="snip1390">
-              <img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample3.jpg"
-                alt="profile-sample3"
-                className="profile"
-              />
-              <figcaption>
-                <h2>Eleanor Crisp</h2>
-                <h4>UX Design</h4>
-                <blockquote>
-                  Dad buried in landslide! Jubilant throngs fill streets!
-                  Stunned father inconsolable - demands recount!
-                </blockquote>
-              </figcaption>
-            </figure>
-          </SwiperSlide>
+          {testmonialsData.map((d) => {
+            return (
+              <>
+                <SwiperSlide key={d.id}>
+                  <TestimonialCard
+                    img={require(`./IMG/${d.img}`)}
+                    name={d.name}
+                    college={d.college}
+                    description={d.description}
+                  />
+                </SwiperSlide>
+              </>
+            );
+          })}
         </Swiper>
       </div>
     </>
