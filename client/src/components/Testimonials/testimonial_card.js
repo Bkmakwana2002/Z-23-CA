@@ -10,7 +10,6 @@ const TestimonialCard = (props) => {
   return (
     <>
       <figure className="snip1390">
-        <img src={props.img} alt="profile-sample3" className="profile" />
         <figcaption>
           <h2>{props.name}</h2>
           <h4>{props.college}</h4>
