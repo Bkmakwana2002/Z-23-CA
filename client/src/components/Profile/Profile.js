@@ -76,7 +76,7 @@ const Profile = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (!data.name) {
-          // navigate("/signup-step-2");
+          navigate("/signup-step-2");
           return;
         }
         setName(data.name);
@@ -182,7 +182,7 @@ const Profile = (props) => {
                                 fontWeight: "800",
                                 minWidth: "60px",
                                 borderRadius: "16px",
-                                background: "rgba(255,0,0,0.3)",
+                                background: "green",
                                 backdropFilter: "blur(10px)",
                                 border: "1px solid rgba(255,255,255,0.05)",
                                 margin: "0 0px",
@@ -194,6 +194,28 @@ const Profile = (props) => {
                               onClick={updatePhone}
                             >
                               Save{" "}
+                            </span>{" "}
+                            <span
+                              style={{
+                                padding: "2px 2px",
+                                fontSize: "0.7rem",
+                                fontWeight: "800",
+                                minWidth: "50px",
+                                borderRadius: "16px",
+                                background: "red",
+                                backdropFilter: "blur(10px)",
+                                border: "1px solid rgba(255,255,255,0.05)",
+                                margin: "0 0px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                cursor: "pointer",
+                              }}
+                              onClick={() => {
+                                setUpdatingPhone(false);
+                              }}
+                            >
+                              Discard{" "}
                             </span>{" "}
                           </>
                         );
