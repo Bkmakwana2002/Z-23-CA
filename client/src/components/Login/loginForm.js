@@ -49,11 +49,11 @@ function LoginForm(props) {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
-    setLoading(true);
+    e.preventDefault();
     if (!props.email) {
       toast.error("Bad Request, Access Denied!");
+      return;
     }
-    e.preventDefault();
     if (
       user.name === "" ||
       user.college === "" ||
@@ -64,8 +64,9 @@ function LoginForm(props) {
       user.YearOfPassing === ""
     ) {
       toast.error("Please fill required fields");
-      setLoading(false);
+      return;
     } else {
+      setLoading(true);
       fetch("http://localhost:5000/profile/addUser", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -83,14 +84,12 @@ function LoginForm(props) {
       })
         .then((response) => response.json())
         .then((json) => {
+          setLoading(false);
           navigate("/profile");
         });
-      setLoading(false);
     }
   };
-  if (loading) {
-    return <PreLoader />;
-  }
+
   const handleSelected = (selectedOption) => {
     setUser({
       ...user,
@@ -185,7 +184,16 @@ function LoginForm(props) {
               required
             />
           </OverlayTrigger>
-          <button type="submit"> Finish </button>{" "}
+          <button type="submit">
+            {" "}
+            {(() => {
+              if (loading) {
+                return <div className="spinner"></div>;
+              } else {
+                return <>Finish</>;
+              }
+            })()}
+          </button>{" "}
           <small>
             <Link to={"/profile"}>Have you filled already? Click here!</Link>
           </small>

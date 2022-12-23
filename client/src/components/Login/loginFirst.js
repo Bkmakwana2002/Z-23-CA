@@ -59,7 +59,7 @@ function LoginFirst() {
             response._tokenResponse.refreshToken
           );
           setLoading(false);
-          navigate("/signup-step-3");
+          navigate("/signup-step-2");
         })
         .catch((error) => {
           if (error.code === "auth/email-already-in-use") {
