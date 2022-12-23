@@ -4,6 +4,7 @@ import "./css/profile-main-styles.css";
 import Leaderboard from "./Leaderboard";
 import Profile from "./Profile";
 import LoaderProfile from "./loader-profile";
+import _CA_GUIDE from "./CA_guide";
 
 const Profile_main = (props) => {
   const values = [
@@ -67,6 +68,13 @@ const Profile_main = (props) => {
                         email={props.email}
                         isVarified={props.isVarified}
                       />{" "}
+                    </div>{" "}
+                    <div
+                      className={`${
+                        isActive === values[2].id ? "yes1" : "no1"
+                      }`}
+                    >
+                      <_CA_GUIDE />
                     </div>{" "}
                   </>
                 );

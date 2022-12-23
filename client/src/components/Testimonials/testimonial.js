@@ -60,16 +60,14 @@ const Testimonials = () => {
         >
           {testmonialsData.map((d) => {
             return (
-              <>
-                <SwiperSlide key={d.id}>
-                  <TestimonialCard
-                    img={require(`./IMG/${d.img}`)}
-                    name={d.name}
-                    college={d.college}
-                    description={d.description}
-                  />
-                </SwiperSlide>
-              </>
+              <SwiperSlide key={d.id}>
+                <TestimonialCard
+                  img={require(`./IMG/${d.img}`)}
+                  name={d.name}
+                  college={d.college}
+                  description={d.description}
+                />
+              </SwiperSlide>
             );
           })}
         </Swiper>

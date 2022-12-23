@@ -29,10 +29,10 @@ figure.snip1390 {
     text-align: center;
     font-size: 16px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(242, 242, 242, 0.274);
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-radius: 16px;
@@ -91,10 +91,10 @@ figure.snip1390 blockquote {
     color: var(--light-primary);
     padding: 45px 20px 40px 50px;
     margin-top: 30px;
-    background-color: rgba(238, 0, 255, 0.078);
+    background-color: rgba(238, 0, 255, 0.138);
     border-radius: 16px;
     text-align: left;
-    /* border: 1px solid var(--hell-primary); */
+    border: 1px solid rgba(238, 130, 238, 0.211);
     position: relative;
     font-style: italic;
     opacity: 0.8;

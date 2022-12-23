@@ -76,7 +76,8 @@ const Profile = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (!data.name) {
-          navigate("/signup-step-3");
+          // navigate("/signup-step-2");
+          return;
         }
         setName(data.name);
         setCollege(data.collegeName);
@@ -110,8 +111,8 @@ const Profile = (props) => {
             height: "300px",
           }}
         >
-          <h1>Please wait...</h1>
-        </div>
+          <h1> Please wait... </h1>{" "}
+        </div>{" "}
       </>
     );
   }
@@ -121,46 +122,46 @@ const Profile = (props) => {
         <div className="profile-left">
           <div className="profile-personal-details">
             <div className="profile-personal-details-head">
-              <h1>Personal Details</h1>
-            </div>
+              <h1> Personal Details </h1>{" "}
+            </div>{" "}
             <div className="profile-personal-details-content">
               <ul>
                 <li>
-                  <span className="id">Name</span>
-                  <span className="value">{name}</span>
-                </li>
+                  <span className="id"> Name </span>{" "}
+                  <span className="value"> {name} </span>{" "}
+                </li>{" "}
                 <li>
-                  <span className="id">Gender</span>
-                  <span className="value">{gender}</span>
-                </li>
+                  <span className="id"> Gender </span>{" "}
+                  <span className="value"> {gender} </span>{" "}
+                </li>{" "}
                 <li>
-                  <span className="id">Date of Birth</span>
-                  <span className="value">{dob}</span>
-                </li>
+                  <span className="id"> Date of Birth </span>{" "}
+                  <span className="value"> {dob} </span>{" "}
+                </li>{" "}
                 <li>
-                  <span className="id">College</span>
-                  <span className="value">{college}</span>
-                </li>
+                  <span className="id"> College </span>{" "}
+                  <span className="value"> {college} </span>{" "}
+                </li>{" "}
                 <li>
-                  <span className="id">College State</span>
-                  <span className="value">{state}</span>
-                </li>
+                  <span className="id"> College State </span>{" "}
+                  <span className="value"> {state} </span>{" "}
+                </li>{" "}
                 <li>
-                  <span className="id">Year of Passing</span>
-                  <span className="value">{YearOfPassing}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+                  <span className="id"> Year of Passing </span>{" "}
+                  <span className="value"> {YearOfPassing} </span>{" "}
+                </li>{" "}
+              </ul>{" "}
+            </div>{" "}
+          </div>{" "}
           <div className="profile-contact-info">
             <div className="profile-contact-details-head">
-              <h1>Contact Details</h1>
-            </div>
+              <h1> Contact Details </h1>{" "}
+            </div>{" "}
             <br />
             <div className="profile-contact-details-content">
               <ul>
                 <li>
-                  <span className="id">Phone</span>
+                  <span className="id"> Phone </span>{" "}
                   <span className="value">
                     +91 -
                     <input
@@ -169,7 +170,7 @@ const Profile = (props) => {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       disabled={!udatingPhone && "disabled"}
-                    />
+                    />{" "}
                     {(() => {
                       if (udatingPhone) {
                         return (
@@ -192,8 +193,8 @@ const Profile = (props) => {
                               }}
                               onClick={updatePhone}
                             >
-                              Save
-                            </span>
+                              Save{" "}
+                            </span>{" "}
                           </>
                         );
                       } else {
@@ -210,19 +211,19 @@ const Profile = (props) => {
                                 setUpdatingPhone(true);
                               }}
                             >
-                              edit_square
-                            </span>
+                              edit_square{" "}
+                            </span>{" "}
                           </>
                         );
                       }
-                    })()}
-                  </span>
-                </li>
+                    })()}{" "}
+                  </span>{" "}
+                </li>{" "}
                 <li>
-                  <span className="id">Email</span>
+                  <span className="id"> Email </span>{" "}
                   <span className="value">
-                    {props.email}
-                    {props.isVarified}
+                    {" "}
+                    {props.email} {props.isVarified}{" "}
                     {(() => {
                       if (props.isVarified) {
                         return (
@@ -245,14 +246,14 @@ const Profile = (props) => {
                               }}
                             >
                               <span className="material-symbols-outlined">
-                                verified
+                                verified{" "}
                               </span>
-                              Verified
-                            </span>
+                              Verified{" "}
+                            </span>{" "}
                           </>
                         );
                       }
-                    })()}
+                    })()}{" "}
                     {(() => {
                       if (!props.isVarified && !isSent) {
                         return (
@@ -276,10 +277,10 @@ const Profile = (props) => {
                               onClick={SendVarificationEmail}
                             >
                               <span className="material-symbols-outlined">
-                                warning
+                                warning{" "}
                               </span>
-                              Verify Email
-                            </span>
+                              Verify Email{" "}
+                            </span>{" "}
                           </>
                         );
                       } else if (!props.isVarified && isSent) {
@@ -303,45 +304,46 @@ const Profile = (props) => {
                               }}
                             >
                               <span className="material-symbols-outlined">
-                                done_all
+                                done_all{" "}
                               </span>
-                              Email Sent
-                            </span>
+                              Email Sent{" "}
+                            </span>{" "}
                           </>
                         );
                       }
-                    })()}
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="divider"></div>
+                    })()}{" "}
+                  </span>{" "}
+                </li>{" "}
+              </ul>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>{" "}
+        <div className="divider"> </div>{" "}
         <div className="profile-right">
+          {" "}
           {/* <div className="profile-image">
-            <img
-              src="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659652_960_720.png"
-              alt=""
-              srcSet=""
-            />
-          </div> */}
+                        <img
+                          src="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659652_960_720.png"
+                          alt=""
+                          srcSet=""
+                        />
+                      </div> */}{" "}
           <div className="ca-points">
             <ul>
               <li>
-                <div className="id">Points</div>
-                <div className="value">1324</div>
-              </li>
+                <div className="id"> Points </div>{" "}
+                <div className="value"> 1324 </div>{" "}
+              </li>{" "}
               <li>
-                <div className="id">Referals</div>
-                <div className="value">140</div>
-              </li>
+                <div className="id"> Referals </div>{" "}
+                <div className="value"> 140 </div>{" "}
+              </li>{" "}
               <li>
-                <div className="id">Z-Coins</div>
-                <div className="value">123</div>
-              </li>
-            </ul>
-          </div>
+                <div className="id"> Z - Coins </div>{" "}
+                <div className="value"> 123 </div>{" "}
+              </li>{" "}
+            </ul>{" "}
+          </div>{" "}
           <div className="profile-refferal-section">
             <div className="refferal-content">
               <input
@@ -351,14 +353,14 @@ const Profile = (props) => {
                 value={refferal}
                 disabled
               />
-            </div>
+            </div>{" "}
             <div className="refferal-copy" onClick={copyToClipboard}>
-              <span className="material-symbols-outlined">content_copy</span>
-            </div>
-          </div>
-          <small>Refferal Code</small>
-        </div>
-      </div>
+              <span className="material-symbols-outlined"> content_copy </span>{" "}
+            </div>{" "}
+          </div>{" "}
+          <small> Refferal Code </small>{" "}
+        </div>{" "}
+      </div>{" "}
     </>
   );
 };

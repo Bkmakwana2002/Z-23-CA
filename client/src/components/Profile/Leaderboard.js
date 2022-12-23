@@ -1,14 +1,13 @@
 import "./css/leaderboard-styles.css";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 const Leaderboard = (props) => {
-  const navigate = useNavigate();
   const [leaders, setLeaders] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     function handleLeaderBoardData() {
+      console.log("leaderboard called!");
       setLoading(true);
       fetch("http://localhost:5000/profile/leaderBoard", {
         method: "GET",
@@ -19,15 +18,16 @@ const Leaderboard = (props) => {
           setLeaders(data);
         })
         .catch((err) => {
-          console.log(err);
           toast.error(err);
-          navigate("/");
           return;
         });
       setLoading(false);
     }
     handleLeaderBoardData();
-  }, [leaders]);
+  }, []);
+  if (loading) {
+    return <>Loading...</>;
+  }
   return (
     <div className="leaderboard-main">
       <div className="leaderboard-leaders">
@@ -70,7 +70,7 @@ const Leaderboard = (props) => {
           <tbody>
             {" "}
             {leaders &&
-              leaders.map((item, index) => {
+              leaders?.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td> {index + 1} </td> <td> {item.name} </td>{" "}
