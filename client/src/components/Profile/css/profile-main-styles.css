@@ -56,7 +56,7 @@
 }
 
 .profile-card>.profile-tabs>.active {
-    background-image: linear-gradient( to right, #6f0269 0%, #9648aa 51%, #000000 100%);
+    background-image: linear-gradient( to right, var(--heaven-primary) 0%, var(--hell-primary) 53%, var(--light-primary) 100%);
     background-size: 200% auto;
     color: var(--light-primary);
     display: block;
@@ -160,7 +160,7 @@
 }
 
 .profile-main-parent {
-    color: white;
+    color: var(--light-primary);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -227,7 +227,7 @@
 
 .scores-updation-notice {
     position: absolute;
-    color: white;
+    color: var(--light-primary);
     bottom: 0;
     margin: 0px;
     margin-bottom: 2px;

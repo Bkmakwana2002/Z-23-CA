@@ -26,7 +26,6 @@ function NavBar(props) {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
-  useEffect(() => {}, [expand]);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {

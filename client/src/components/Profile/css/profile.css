@@ -68,7 +68,7 @@
 
 .profile>.profile-left>.profile-personal-details>.profile-personal-details-head>h1::first-letter,
 .profile>.profile-left>.profile-contact-info>.profile-contact-details-head>h1::first-letter {
-    color: violet;
+    color: var(--hell-primary);
     font-weight: 900;
     font-family: cursive;
 }
@@ -128,7 +128,7 @@
 
 .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li>.id,
 .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.id {
-    color: var(--heaven-primary);
+    color: var(--light-primary);
     font-weight: 900;
 }
 
@@ -425,8 +425,8 @@
 }
 
 .active-edit {
-    background-color: #fff !important;
-    color: rgb(0, 110, 31);
+    background-color: transparent !important;
+    color: var(--hell-primary);
     font-weight: 600;
     border-radius: 1.1rem;
     padding: 0px 5px;

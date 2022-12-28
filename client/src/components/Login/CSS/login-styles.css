@@ -66,6 +66,7 @@
 
 .form-container>.custom-form>input:focus {
     border: 0.5px dashed rgba(238, 130, 238, 0.227);
+    background-color: var(--hell-primary);
 }
 
 .form-container>.custom-form>input::placeholder {
@@ -74,7 +75,7 @@
 }
 
 .form-container>.custom-form>button {
-    background-image: linear-gradient( to right, #000000 0%, #345b6d 51%, #000000 100%);
+    background-image: linear-gradient( to right, #000000 0%, #6d4b34 51%, #000000 100%);
     padding: 15px 45px;
     width: 100%;
     text-align: center;

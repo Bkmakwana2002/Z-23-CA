@@ -22,27 +22,28 @@
     flex-direction: row;
     flex-wrap: wrap;
     height: 100vh;
-    background-image: url("https://getwallpapers.com/wallpaper/full/e/7/3/535426.jpg");
-    /* background-image: url("../../Assets/bg-landing-page.png"); */
+    /* background-image: url("https://getwallpapers.com/wallpaper/full/e/7/3/535426.jpg"); */
+    background-image: url("https://wallpapercave.com/wp/wp2216448.jpg");
     background-color: transparent;
     /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 89%); */
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-attachment: fixed;
 }
 
 .home-container>.home-content {
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    /* background: rgba(0, 0, 0, 0.451);
+    background: rgba(0, 0, 0, 0.645);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.25); */
+    border: 0px solid rgba(255, 255, 255, 0.25);
     border-radius: 16px;
-    height: 70vh;
+    height: 75vh;
+    margin-top: 80px;
 }
 
 .home-container>.home-content>.header {
@@ -52,7 +53,7 @@
 .home-container>.home-content>.header>h1 {
     font-family: "Island Moments";
     font-size: 12rem;
-    color: var(--dark-primary);
+    color: var(--heaven-primary);
     -webkit-animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
     animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
@@ -68,7 +69,7 @@
 }
 
 .home-container>.home-content>.header>h1::first-letter {
-    color: var(--hell-primary);
+    color: var(--light-primary);
 }
 
 .home-container>.home-content>.registration-btn>a {

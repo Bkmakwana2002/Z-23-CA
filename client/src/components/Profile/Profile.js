@@ -141,7 +141,7 @@ const Profile = (props) => {
                   <span className="value"> {dob} </span>{" "}
                 </li>{" "}
                 <li>
-                  <span className="id"> College &emsp; &emsp;&ensp;:  </span>{" "}
+                  <span className="id"> College &emsp; &emsp;&ensp;: </span>{" "}
                   <span className="value"> {college} </span>{" "}
                 </li>{" "}
                 <li>

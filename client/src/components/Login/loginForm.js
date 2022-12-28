@@ -63,7 +63,11 @@ function LoginForm(props) {
       user.phone === "" ||
       user.YearOfPassing === ""
     ) {
-      toast.error("Please fill required fields");
+      setLoading(true);
+      setTimeout(() => {
+        toast.error("Please fill required fields");
+        setLoading(false);
+      }, 1000);
       return;
     } else {
       setLoading(true);
@@ -71,20 +75,24 @@ function LoginForm(props) {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
-          name: user.name,
-          email: props.email,
-          collegeName: user.college,
-          gender: user.gender,
-          collegeState: user.state,
-          dob: user.dob,
-          phone: user.phone,
-          YearOfPassing: user.YearOfPassing,
+          name: user?.name,
+          email: props?.email,
+          collegeName: user?.college,
+          gender: user?.gender,
+          collegeState: user?.state,
+          dob: user?.dob,
+          phone: user?.phone,
+          YearOfPassing: user?.YearOfPassing,
         }),
       })
         .then((response) => response.json())
         .then((json) => {
           setLoading(false);
           navigate("/profile");
+        })
+        .catch((err) => {
+          setLoading(false);
+          toast.error(err);
         });
     }
   };
@@ -104,7 +112,7 @@ function LoginForm(props) {
   };
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      Date of Birth
+      DOB
     </Tooltip>
   );
   return (
