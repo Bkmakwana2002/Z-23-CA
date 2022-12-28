@@ -68,7 +68,7 @@ function LoginFirst() {
           }
         });
     } else {
-      toast.error("Password 1 and Password 2 does not match");
+      toast.error("Password and Confirm Password don't match");
       setLoading(false);
     }
   };

@@ -19,7 +19,7 @@ function ForgotPassowrd() {
       toast.error("Fill required field first");
     } else {
       toast.info(
-        "Email sent successfully. Please check promotions or spam folder"
+        "Email sent successfully. Please check promotions or spam folder also"
       );
       setLoading(false);
       await sendPasswordResetEmail(email);

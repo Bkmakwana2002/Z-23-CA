@@ -35,7 +35,7 @@ function Login() {
         // The signed-in user info.
         // const user = result.user;
         sessionStorage.setItem("Auth Token", token);
-        toast.success("Loggedin  Successfully");
+        toast.success("Logged In  Successfully");
         // ...
       })
       .catch((error) => {
@@ -61,11 +61,11 @@ function Login() {
         })
         .catch((error) => {
           if (error.code === "auth/wrong-password") {
-            toast.error("Please check the Password");
+            toast.error("Email or Password is wrong");
             setLoading(false);
           }
           if (error.code === "auth/user-not-found") {
-            toast.error("Please check the Email");
+            toast.error("Email or Password is wrong");
             setLoading(false);
           }
         });

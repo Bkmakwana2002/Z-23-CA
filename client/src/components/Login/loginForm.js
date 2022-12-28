@@ -79,7 +79,6 @@ function LoginForm(props) {
           dob: user.dob,
           phone: user.phone,
           YearOfPassing: user.YearOfPassing,
-          idCard: "",
         }),
       })
         .then((response) => response.json())

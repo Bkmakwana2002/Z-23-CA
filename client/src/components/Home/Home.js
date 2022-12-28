@@ -14,7 +14,7 @@ function Home(props) {
         <div className="home-content">
           <div className="header">
             <h1>
-              <Tilt>Zeitgeist"23</Tilt>
+              <Tilt>Zeitgeist'23</Tilt>
             </h1>
           </div>
           <div className="subheader">

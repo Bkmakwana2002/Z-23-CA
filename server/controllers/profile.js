@@ -16,7 +16,8 @@ exports.addUserDetail = (req, res) => {
             collegeName: req.body.collegeName,
             collegeState: req.body.collegeState,
             referral_code: "CA-" + shortid.generate(),
-            invite: 0,
+            invites: 0,
+            points: 0
         };
         const response = db.collection("CA").doc(id).set(userJson);
         console.log("updated successfully");
