@@ -18,15 +18,18 @@ import LoginFirst from "./components/Login/loginFirst";
 import LoginForm from "./components/Login/loginForm";
 import { app } from "./firebase-config";
 import { getAuth } from "firebase/auth";
-
 import ForgotPassowrd from "./components/Login/forgotPassword";
 import Profile_main from "./components/Profile/Profile-main";
+import DialogBox from "./components/Dialog Box/DialogBox";
+import { ToastContainer } from "react-toastify";
 
 function App(props) {
   const [load, upadateLoad] = useState(true);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isVarified, setVarified] = useState(false);
+  const [showLogout, setShowLogout] = useState(2);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       upadateLoad(false);
@@ -49,10 +52,37 @@ function App(props) {
   }, []);
   return (
     <Router>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Preloader load={load} />
-      {/* <PreLoader /> */}
+      {(() => {
+        if (showLogout === 1) {
+          return (
+            <DialogBox
+              setShowLogout={setShowLogout}
+              setEmail={props.setEmail}
+            />
+          );
+        }
+      })()}
       <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar email={email} setEmail={setEmail} name={name} />
+        <Navbar
+          email={email}
+          setEmail={setEmail}
+          name={name}
+          setShowLogout={setShowLogout}
+          showLogout={showLogout}
+        />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home email={email} />} />{" "}
@@ -74,7 +104,13 @@ function App(props) {
                   <Route
                     path="/profile"
                     element={
-                      <Profile_main email={email} isVarified={isVarified} />
+                      <Profile_main
+                        email={email}
+                        setEmail={setEmail}
+                        isVarified={isVarified}
+                        setShowLogout={setShowLogout}
+                        showLogout={showLogout}
+                      />
                     }
                   />{" "}
                 </>
@@ -83,6 +119,7 @@ function App(props) {
           })()}
           <Route path="/signup-step-2" element={<LoginForm email={email} />} />{" "}
           <Route path="*" element={<Navigate to="/" />} />{" "}
+          <Route path="/test" element={<DialogBox />} />{" "}
         </Routes>{" "}
         <Footer />
       </div>{" "}

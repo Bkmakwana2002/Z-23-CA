@@ -63,7 +63,7 @@ const Leaderboard = (props) => {
                   <div className="points-value"> {leaders[i]?.invite} </div>{" "}
                 </div>{" "}
                 <div className="referals">
-                  <div className="referals-head"> Referals </div>{" "}
+                  <div className="referals-head"> Invites </div>{" "}
                   <div className="referals-value"> 50 </div>{" "}
                 </div>{" "}
               </div>{" "}

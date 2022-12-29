@@ -12,6 +12,7 @@
     z-index: 999;
     user-zoom: none;
     flex-direction: column;
+    backdrop-filter: blur(4px);
 }
 
 .main-loader>.loader-text {

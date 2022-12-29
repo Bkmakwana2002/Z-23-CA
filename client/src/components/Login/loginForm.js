@@ -18,6 +18,7 @@ const options = [
 function LoginForm(props) {
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [not_in_list, set_not_in_list] = useState(false);
   const LoadOptions = (inputValue) => {
     return axios
       .get(
@@ -139,6 +140,28 @@ function LoginForm(props) {
               IndicatorSeparator: () => null,
             }}
           />
+          <p
+            onClick={() => set_not_in_list(!not_in_list)}
+            style={{
+              fontSize: "0.8rem",
+              color: "var(--hell-primary)",
+              marginLeft: "5px",
+            }}
+          >
+            College name not found? Click
+          </p>
+          {not_in_list && (
+            <input
+              type="text"
+              placeholder="Create College Name"
+              id="college"
+              value={user.college}
+              name="college"
+              onChange={(e) => onInputChange(e)}
+              required
+              autoFocus
+            />
+          )}
           <input
             type="text"
             placeholder="College State"

@@ -141,8 +141,11 @@ const Profile = (props) => {
                   <span className="value"> {dob} </span>{" "}
                 </li>{" "}
                 <li>
-                  <span className="id"> College &emsp; &emsp;&ensp;: </span>{" "}
-                  <span className="value"> {college} </span>{" "}
+                  <span className="id"> College&emsp;&emsp;&emsp;: </span>{" "}
+                  <span className="value" title={college}>
+                    {" "}
+                    <h6>{college} </h6>
+                  </span>{" "}
                 </li>{" "}
                 <li>
                   <span className="id"> College State :</span>{" "}
@@ -344,27 +347,33 @@ const Profile = (props) => {
         </div>{" "}
         <div className="divider"> </div>{" "}
         <div className="profile-right">
-          {" "}
-          {/* <div className="profile-image">
-                        <img
-                          src="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659652_960_720.png"
-                          alt=""
-                          srcSet=""
-                        />
-                      </div> */}{" "}
+          {/* {" "}
+          <div className="profile-image">
+            <img
+              src="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659652_960_720.png"
+              alt=""
+              srcSet=""
+            />
+          </div>{" "} */}
           <div className="ca-points">
             <ul>
               <li>
-                <div className="id"> Points </div>{" "}
+                <div className="id"> Points &ensp;: </div>{" "}
                 <div className="value"> {points} </div>{" "}
               </li>{" "}
               <li>
-                <div className="id"> Invites </div>{" "}
+                <div className="id"> Invites&ensp;: </div>{" "}
                 <div className="value"> {invites} </div>{" "}
+              </li>{" "}
+              <li>
+                <div className="id"> Rank &ensp;&ensp;: </div>{" "}
+                <div className="value"> 10 </div>{" "}
               </li>{" "}
             </ul>{" "}
           </div>{" "}
+          <strong> Refferal Code : </strong>{" "}
           <div className="profile-refferal-section">
+            {" "}
             <div className="refferal-content">
               <input
                 type="text"
@@ -378,7 +387,6 @@ const Profile = (props) => {
               <span className="material-symbols-outlined"> content_copy </span>{" "}
             </div>{" "}
           </div>{" "}
-          <small> Refferal Code </small>{" "}
         </div>{" "}
       </div>{" "}
     </>

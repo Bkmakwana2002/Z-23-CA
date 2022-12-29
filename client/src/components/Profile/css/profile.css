@@ -130,7 +130,16 @@
 .profile>.profile-left>.profile-contact-info>.profile-contact-details-content>ul>li>.id {
     color: var(--light-primary);
     font-weight: 900;
+    min-width: 130px;
 }
+
+
+/* .profile>.profile-left>.profile-personal-details>.profile-personal-details-content>ul>li>.value>h6 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 360px;
+} */
 
 .profile>.profile-right {
     display: flex;

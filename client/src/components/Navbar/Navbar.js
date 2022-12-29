@@ -32,28 +32,8 @@ function NavBar(props) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const handleLogout = () => {
-    sessionStorage.removeItem("Auth Token");
-    const auth = getAuth();
-    auth.signOut();
-    navigate("/");
-    toast.info("Logout Successfuly");
-    props.setEmail("");
-  };
   return (
     <>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <Navbar
         expanded={expand}
         fixed="top"
@@ -125,7 +105,9 @@ function NavBar(props) {
                         <Nav.Link
                           onClick={() => {
                             updateExpanded(!expand);
-                            handleLogout();
+                            props.showLogout === 1
+                              ? props.setShowLogout(2)
+                              : props.setShowLogout(1);
                           }}
                         >
                           <span className="material-symbols-outlined">
