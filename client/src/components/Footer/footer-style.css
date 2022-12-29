@@ -1,85 +1,69 @@
-/* --------- */
-
-
-/* Footer */
-
-
-/* --------- */
-
-.footer {
-    background-color: rgb(10, 4, 22);
-    bottom: 0 !important;
-    padding-top: 10px !important;
-    padding-bottom: 8px !important;
+/* body {
+    margin: 0;
+    overflow-x: hidden;
+} */
+.myrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger !important;
+}
+.myfooter {
+    background: #000;
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
 }
 
-.footer-copywright {
-    text-align: center !important;
+.myfooter > .myrow {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: gray;
+    font-size: 0.8em;
 }
 
-.footer-body {
-    z-index: 1;
-    text-align: center !important;
+.myfooter > .myrow a {
+    text-decoration: none;
+    color: gray;
+    transition: 0.5s;
 }
 
-@media (max-width: 767px) {
-    .footer-copywright {
-        text-align: center !important;
+.myfooter > .myrow a:hover {
+    color: #fff;
+}
+
+.myfooter > .myrow ul {
+    width: 100%;
+}
+
+.myfooter > .myrow ul li {
+    display: inline-block;
+    margin: 0px 30px;
+}
+.myfooter > .myrow a{
+    margin-right: 20px;
+}
+
+.myfooter > .myrow a i {
+    font-size: 2em;
+    margin: 0% 1%;
+}
+
+@media (max-width:720px) {
+    .myfooter {
+        text-align: left;
+        padding: 5%;
+        font-size: 0.6rem !important;
     }
-    .footer-body {
-        text-align: center !important;
+
+    .myfooter > .myrow ul li {
+        display: block;
+        margin: 10px 0px;
+        text-align: left;
     }
-}
 
-.footer h3 {
-    font-size: 1em;
-    color: white !important;
-    margin-top: 0.5em !important;
-    margin-bottom: 0.5em !important;
-}
-
-.footer-icons {
-    margin-top: 0.5em !important;
-    margin-bottom: 0.5em !important;
-    padding: 0 !important;
-}
-
-.blockquote-footer {
-    color: #a588c0 !important;
-}
-
-.like-item {
-    padding-top: 10px !important;
-    font-size: 1.1em !important;
-    font-family: sans-serif !important;
-}
-
-.like-btn {
-    background-color: #1e10955e !important;
-    border-color: #1e10955e !important;
-    padding: 0.25rem 0.98rem !important;
-    border-radius: 5px !important;
-    line-height: 1.4 !important;
-    transition: 0.3s ease !important;
-}
-
-.like-btn:hover {
-    transform: translateY(-2px) !important;
-    background-color: #5100ff86 !important;
-    border-color: #5100ff86 !important;
-}
-
-.animate-like {
-    animation-name: likeAnimation;
-    animation-fill-mode: forwards;
-    animation-duration: 0.85s;
-}
-
-@keyframes likeAnimation {
-    0% {
-        transform: scale(1.5);
-    }
-    100% {
-        transform: scale(1);
+    .myfooter > .myrow a i {
+        margin: 0% 3%;
     }
 }
