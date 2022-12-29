@@ -62,7 +62,7 @@ function App(props) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
       />
       <Preloader load={load} />
       {(() => {
