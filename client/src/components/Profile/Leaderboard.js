@@ -16,7 +16,6 @@ const Leaderboard = (props) => {
         .then((response) => response.json())
         .then((data) => {
           setLeaders(data);
-          console.log(data);
         })
         .catch((err) => {
           toast.error(err);

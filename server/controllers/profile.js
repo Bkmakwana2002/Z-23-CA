@@ -30,13 +30,15 @@ exports.addUserDetail = (req, res) => {
 
 exports.getUserDetail = async(req, res) => {
     try {
-        const snapshot = await db.collection("CA").get()
-        const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        const snapshot = await db.collection("CA").get();
+        const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        list.sort((a,b)=>(a.points>b.points ? -1:1));
         var temp
-        list.forEach(element => {
+        list.forEach(async (element,i) => {
             if (element.email === req.body.id) {
-                temp = element
-                res.status(200).json(element)
+                temp = element;
+                const element2 = {...element, rank: i+1 };
+                res.status(200).json(element2);
             }
         })
         if (temp === undefined || temp === null) { res.status(400).json("not found") }
