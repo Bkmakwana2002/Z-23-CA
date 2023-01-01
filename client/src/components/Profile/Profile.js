@@ -27,6 +27,7 @@ const Profile = (props) => {
   const [udatingPhone, setUpdatingPhone] = useState(false);
   const [points, setPoints] = useState(0);
   const [invites, setInvites] = useState(0);
+  const [rank, setRank] = useState(1);
   const SendVarificationEmail = () => {
     const auth = getAuth();
     try {
@@ -90,6 +91,7 @@ const Profile = (props) => {
         setRefferal(data?.referral_code);
         setPoints(data?.points);
         setInvites(data?.invites);
+        setRank(data?.rank);
       })
       .catch((err) => {
         toast.error("Something went wrong...");
@@ -367,7 +369,7 @@ const Profile = (props) => {
               </li>{" "}
               <li>
                 <div className="id"> Rank &ensp;&ensp;: </div>{" "}
-                <div className="value"> 10 </div>{" "}
+                <div className="value"> {rank} </div>{" "}
               </li>{" "}
             </ul>{" "}
           </div>{" "}
