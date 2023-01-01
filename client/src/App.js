@@ -22,6 +22,7 @@ import ForgotPassowrd from "./components/Login/forgotPassword";
 import Profile_main from "./components/Profile/Profile-main";
 import DialogBox from "./components/Dialog Box/DialogBox";
 import { ToastContainer } from "react-toastify";
+import _BackgroundMusic from "./components/Music/Music";
 
 function App(props) {
   const [load, upadateLoad] = useState(true);
@@ -122,6 +123,7 @@ function App(props) {
           <Route path="/test" element={<DialogBox />} />{" "}
         </Routes>{" "}
         <Footer />
+        <_BackgroundMusic />
       </div>{" "}
     </Router>
   );

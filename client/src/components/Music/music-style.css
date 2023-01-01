@@ -1,0 +1,22 @@
+.music-main {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.music-main>.sound {
+    display: none;
+}
+
+.music-main>.buttons {
+    height: auto;
+    width: auto;
+}

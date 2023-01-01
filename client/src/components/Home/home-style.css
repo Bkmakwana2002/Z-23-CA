@@ -29,21 +29,37 @@
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
+    overflow: hidden !important;
 }
 
 .home-container>.home-content {
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.645);
+    background: rgba(0, 0, 0, 0.377);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     border: 0px solid rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     height: 75vh;
     margin-top: 80px;
+}
+
+.home-container>video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-60%);
 }
 
 .home-container>.home-content>.header {
@@ -145,6 +161,12 @@
     }
     .home-container>.home-content>.registration-btn>a {
         padding: 10px 30px;
+    }
+    .home-container>video {
+        min-width: unset;
+        min-height: unset;
+        width: 200%;
+        height: 100vh;
     }
 }
 
