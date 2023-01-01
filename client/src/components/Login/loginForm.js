@@ -3,7 +3,7 @@ import PreLoader from "../preloader/preloader";
 import "./CSS/login-styles.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import AsyncCreatableSelect from "react-select/async-creatable";
+import AsyncSelect from "react-select/async";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Select from "react-select";
@@ -121,6 +121,7 @@ function LoginForm(props) {
       <div className="form-container">
         <form className="custom-form" noValidate onSubmit={handleSubmit}>
           <h3>Register-2/2</h3>
+          <input type="text" value={props.email} disabled required />
           <input
             type="text"
             placeholder="Full name"
@@ -130,26 +131,31 @@ function LoginForm(props) {
             onChange={(e) => onInputChange(e)}
             required
           />
-          <AsyncCreatableSelect
-            className="college-select"
-            placeholder="College Name"
-            loadOptions={LoadOptions}
-            onChange={handleSelected}
-            styles={colourStyles}
-            components={{
-              IndicatorSeparator: () => null,
-            }}
-          />
-          <p
-            onClick={() => set_not_in_list(!not_in_list)}
-            style={{
-              fontSize: "0.8rem",
-              color: "var(--hell-primary)",
-              marginLeft: "5px",
-            }}
-          >
-            College name not found? Click
-          </p>
+          {!not_in_list && (
+            <>
+              <AsyncSelect
+                className="college-select"
+                placeholder="College Name"
+                loadOptions={LoadOptions}
+                onChange={handleSelected}
+                styles={colourStyles}
+                components={{
+                  IndicatorSeparator: () => null,
+                }}
+              />
+              <span
+                onClick={() => set_not_in_list(!not_in_list)}
+                style={{
+                  fontSize: "0.8rem",
+                  color: "var(--hell-primary)",
+                  marginLeft: "5px",
+                  cursor: "pointer",
+                }}
+              >
+                College name not found? Click
+              </span>
+            </>
+          )}
           {not_in_list && (
             <input
               type="text"
@@ -250,7 +256,9 @@ const colourStyles = {
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: !(isFocused || isSelected) ? "transparent" : "violet",
+      backgroundColor: !(isFocused || isSelected)
+        ? "transparent"
+        : "var(--hell-primary)",
       color: isFocused || isSelected ? "black !important" : "#fff !important",
       fontWeight: "600 !important",
       cursor: isDisabled ? "not-allowed" : "default",

@@ -60,11 +60,11 @@ const Leaderboard = (props) => {
               <div className="leaders-card-second">
                 <div className="points">
                   <div className="points-head"> Points </div>{" "}
-                  <div className="points-value"> {leaders[i]?.invite} </div>{" "}
+                  <div className="points-value"> {leaders[i]?.points} </div>{" "}
                 </div>{" "}
                 <div className="referals">
                   <div className="referals-head"> Invites </div>{" "}
-                  <div className="referals-value"> 50 </div>{" "}
+                  <div className="referals-value"> {leaders[i]?.invites} </div>{" "}
                 </div>{" "}
               </div>{" "}
             </div>
@@ -85,7 +85,7 @@ const Leaderboard = (props) => {
                 return (
                   <tr key={index}>
                     <td> {index + 1} </td> <td> {item?.name} </td>{" "}
-                    <td> {item?.collegeName} </td> <td> {item?.invite} </td>{" "}
+                    <td> {item?.collegeName} </td> <td> {item?.points} </td>{" "}
                   </tr>
                 );
               })}{" "}

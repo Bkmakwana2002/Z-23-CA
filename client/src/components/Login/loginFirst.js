@@ -64,8 +64,14 @@ function LoginFirst() {
         .catch((error) => {
           if (error.code === "auth/email-already-in-use") {
             toast.error("Email Already in Use");
-            setLoading(false);
+          } else if (error.code === "auth/weak-password") {
+            toast.warning("Weak Password");
+          } else if (error.code === "auth/invalid-email") {
+            toast.warning("Invalid Email");
+          } else {
+            toast.error(error.code);
           }
+          setLoading(false);
         });
     } else {
       toast.error("Password and Confirm Password don't match");

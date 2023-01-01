@@ -10,7 +10,7 @@ const DialogBox = (props) => {
     const auth = getAuth();
     auth.signOut();
     navigate("/");
-    props.setEmail("");
+    // props.setEmail("");
     toast.info("Logout Successfuly");
   };
   return (

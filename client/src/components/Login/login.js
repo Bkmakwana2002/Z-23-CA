@@ -60,12 +60,14 @@ function Login() {
           navigate("/profile");
         })
         .catch((error) => {
-          if (error.code === "auth/wrong-password") {
+          if (
+            error.code === "auth/wrong-password" ||
+            error.code === "auth/user-not-found"
+          ) {
             toast.error("Email or Password is wrong");
             setLoading(false);
-          }
-          if (error.code === "auth/user-not-found") {
-            toast.error("Email or Password is wrong");
+          } else {
+            toast.error(error.code);
             setLoading(false);
           }
         });

@@ -76,20 +76,20 @@ const Profile = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (!data.name) {
-          navigate("/signup-step-2");
-          return;
-        }
-        setName(data.name);
-        setCollege(data.collegeName);
-        setDOB(data.dob);
-        setGender(data.gender);
-        setPhone(data.phone);
-        setState(data.collegeState);
-        setYearOfPassing(data.YearOfPassing);
-        setRefferal(data.referral_code);
-        setPoints(data.points);
-        setInvites(data.invites);
+        // if (!data.name) {
+        //   navigate("/signup-step-2");
+        //   return;
+        // }
+        setName(data?.name);
+        setCollege(data?.collegeName);
+        setDOB(data?.dob);
+        setGender(data?.gender);
+        setPhone(data?.phone);
+        setState(data?.collegeState);
+        setYearOfPassing(data?.YearOfPassing);
+        setRefferal(data?.referral_code);
+        setPoints(data?.points);
+        setInvites(data?.invites);
       })
       .catch((err) => {
         toast.error("Something went wrong...");
