@@ -15,7 +15,7 @@ const Leaderboard = (props) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          setLeaders(data);
+          setLeaders(data.sort((a, b) => (a.points > b.points ? -1 : 1)));
           console.log(data);
         })
         .catch((err) => {
