@@ -6,16 +6,31 @@ const Footer = () => {
       <footer>
         <div className="myfooter">
           <div className="myrow">
-            <a href="https://www.facebook.com/zeitgeist.iitrpr/">
-              <i className="fa fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/zeitgeist_iitrpr/?hl=en">
+            <a
+              href="https://www.instagram.com/zeitgeist_iitrpr/?hl=en"
+              target={"_blank"}
+            >
               <i className="fa fa-instagram"></i>
             </a>
-            <a href="https://in.linkedin.com/in/zeitgeist-iit-ropar-aa2bb6166">
+            <a
+              href="https://www.youtube.com/@ZeitgeistIITRopar"
+              target={"_blank"}
+            >
+              <i className="fa fa-youtube"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/zeitgeist.iitrpr/"
+              target={"_blank"}
+            >
+              <i className="fa fa-facebook"></i>
+            </a>
+            <a
+              href="https://in.linkedin.com/in/zeitgeist-iit-ropar-aa2bb6166"
+              target={"_blank"}
+            >
               <i className="fa fa-linkedin"></i>
             </a>
-            <a href="https://twitter.com/zeitgeist_rpr">
+            <a href="https://twitter.com/zeitgeist_rpr" target={"_blank"}>
               <i className="fa fa-twitter"></i>
             </a>
           </div>
