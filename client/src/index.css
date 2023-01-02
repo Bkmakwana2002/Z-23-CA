@@ -38,6 +38,7 @@ body {
 
 body {
     font-family: "Mulish";
+    background-size: border-box;
 }
 
 

@@ -53,6 +53,7 @@ function App(props) {
   }, []);
   return (
     <Router>
+      <_BackgroundMusic />
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -123,7 +124,6 @@ function App(props) {
           <Route path="/test" element={<DialogBox />} />{" "}
         </Routes>{" "}
         <Footer />
-        <_BackgroundMusic />
       </div>{" "}
     </Router>
   );
