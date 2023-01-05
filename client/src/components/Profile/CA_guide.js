@@ -81,9 +81,9 @@ const _CA_GUIDE = () => {
           <li>
             <div className="title">For Queries Contact:</div>
             <ul>
-              <li>ABC - 1234567890</li>
-              <li>ABC - 1234567890</li>
-              <li>ABC - 1234567890</li>
+              <li>Saurabh Kushwaha - +91 9140798230</li>
+              <li>Bhavya Kumar Makwana - +91 9868325252</li>
+              <li>Dishant Kumar - +91 9992115079</li>
             </ul>
           </li>
         </ul>

@@ -35,7 +35,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="myrow">
-            Copyright © 2023 Zeitgeist - Made in collaboration with &nbsp;{" "}
+            Copyright © 2023 Zeitgeist - Sponsered by&nbsp;{" "}
             <a href="https://webguruz.in/" target={"_blank"}>
               WebGuruz
             </a>

@@ -16,7 +16,16 @@ const _BackgroundMusic = () => {
           if (toggleSound === true) {
             return (
               <div className="sound">
-                <audio ref={audioRef} autoPlay controls>
+                {/* <audio ref={audioRef} autoPlay={true} controls={false}>
+                  <source type="audio/mp3" src={require("./audio-bg.mp3")} />
+                </audio> */}
+                <audio src={require("./audio-bg.mp3")} controls />
+                <audio
+                  controlsList="nodownload"
+                  ref={audioRef}
+                  autoPlay={true}
+                  controls
+                >
                   <source type="audio/mp3" src={require("./audio-bg.mp3")} />
                 </audio>
               </div>
