@@ -3,7 +3,7 @@ const admin = require("../config/admin");
 const db = admin.firestore();
 const shortid = require("shortid");
 
-exports.addUserDetail = (req, res) => {
+exports.addUserDetail = async(req, res) => {
     try {
         const id = req.body.email;
         const userJson = {
@@ -19,7 +19,7 @@ exports.addUserDetail = (req, res) => {
             invites: 0,
             points: 0
         };
-        const response = db.collection("CA").doc(id).set(userJson);
+        const response = await db.collection("CA").doc(id).set(userJson);
         console.log("updated successfully");
         res.status(200).json(response);
     } catch (error) {
@@ -32,12 +32,12 @@ exports.getUserDetail = async(req, res) => {
     try {
         const snapshot = await db.collection("CA").get();
         const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        list.sort((a,b)=>(a.points>b.points ? -1:1));
+        list.sort((a, b) => (a.points > b.points ? -1 : 1));
         var temp
-        list.forEach(async (element,i) => {
+        list.forEach(async(element, i) => {
             if (element.email === req.body.id) {
                 temp = element;
-                const element2 = {...element, rank: i+1 };
+                const element2 = {...element, rank: i + 1 };
                 res.status(200).json(element2);
             }
         })

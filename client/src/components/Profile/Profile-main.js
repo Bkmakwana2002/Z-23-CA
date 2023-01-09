@@ -14,7 +14,7 @@ const Profile_main = (props) => {
     { id: 3, text: "CA GUIDE" },
   ];
   const [loading, setLoading] = useState(true);
-  const [isActive, setActive] = useState(3);
+  const [isActive, setActive] = useState(1);
 
   const handleTabs = (val) => {
     setTimeout(() => {

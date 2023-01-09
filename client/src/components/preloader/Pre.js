@@ -4,14 +4,14 @@ function Pre(props) {
     <>
       {props.load && (
         <div className="loader-main">
-          <video
+          {/* <video
             playsInline="playsinline"
             autoPlay="autoplay"
             muted="muted"
             loop="loop"
           >
             <source src={require("./Video/video-bg.mp4")} type="video/mp4" />
-          </video>
+          </video> */}
           <div className="loader-head-main">
             <h1>Zeitgest"23</h1>
           </div>

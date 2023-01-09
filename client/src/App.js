@@ -31,12 +31,12 @@ function App(props) {
   const [isVarified, setVarified] = useState(false);
   const [showLogout, setShowLogout] = useState(2);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     upadateLoad(false);
+  //   }, 4000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
@@ -66,79 +66,73 @@ function App(props) {
         pauseOnHover
         theme="dark"
       />
-      <Preloader load={load} />{" "}
+      {/* <Preloader load={load} />{" "}
       {(() => {
         if (!load) {
           return (
-            <>
-              {(() => {
-                if (showLogout === 1) {
-                  return (
-                    <DialogBox
-                      setShowLogout={setShowLogout}
-                      setEmail={props.setEmail}
-                    />
-                  );
-                }
-              })()}{" "}
-              <div className="App" id={load ? "no-scroll" : "scroll"}>
-                <Navbar
-                  email={email}
-                  setEmail={setEmail}
-                  name={name}
-                  setShowLogout={setShowLogout}
-                  showLogout={showLogout}
-                />{" "}
-                <ScrollToTop />
-                <Routes>
-                  <Route path="/" element={<Home email={email} />} />{" "}
-                  {(() => {
-                    if (!email) {
-                      return (
-                        <>
-                          <Route path="/login" element={<Login />} />{" "}
-                          <Route path="/signup" element={<LoginFirst />} />{" "}
-                          <Route
-                            path="/forgot-password"
-                            element={<ForgotPassowrd />}
-                          />{" "}
-                        </>
-                      );
-                    }
-                  })()}{" "}
-                  {(() => {
-                    if (email) {
-                      return (
-                        <>
-                          <Route
-                            path="/profile"
-                            element={
-                              <Profile_main
-                                email={email}
-                                setEmail={setEmail}
-                                isVarified={isVarified}
-                                setShowLogout={setShowLogout}
-                                showLogout={showLogout}
-                              />
-                            }
-                          />{" "}
-                        </>
-                      );
-                    }
-                  })()}{" "}
-                  <Route
-                    path="/signup-step-2"
-                    element={<LoginForm email={email} />}
-                  />{" "}
-                  <Route path="*" element={<Navigate to="/" />} />{" "}
-                  <Route path="/test" element={<DialogBox />} />{" "}
-                </Routes>{" "}
-                <Footer />
-              </div>{" "}
-            </>
+            <> */}
+      {(() => {
+        if (showLogout === 1) {
+          return (
+            <DialogBox
+              setShowLogout={setShowLogout}
+              setEmail={props.setEmail}
+            />
           );
         }
       })()}{" "}
+      <div className="App" id={load ? "no-scroll" : "scroll"}>
+        <Navbar
+          email={email}
+          setEmail={setEmail}
+          name={name}
+          setShowLogout={setShowLogout}
+          showLogout={showLogout}
+        />{" "}
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home email={email} />} />{" "}
+          {(() => {
+            if (!email) {
+              return (
+                <>
+                  <Route path="/login" element={<Login />} />{" "}
+                  <Route path="/signup" element={<LoginFirst />} />{" "}
+                  <Route path="/forgot-password" element={<ForgotPassowrd />} />{" "}
+                </>
+              );
+            }
+          })()}{" "}
+          {(() => {
+            if (email) {
+              return (
+                <>
+                  <Route
+                    path="/profile"
+                    element={
+                      <Profile_main
+                        email={email}
+                        setEmail={setEmail}
+                        isVarified={isVarified}
+                        setShowLogout={setShowLogout}
+                        showLogout={showLogout}
+                      />
+                    }
+                  />{" "}
+                </>
+              );
+            }
+          })()}{" "}
+          <Route path="/signup-step-2" element={<LoginForm email={email} />} />{" "}
+          <Route path="*" element={<Navigate to="/" />} />{" "}
+          <Route path="/test" element={<DialogBox />} />{" "}
+        </Routes>{" "}
+        <Footer />
+      </div>{" "}
+      {/* </>
+          );
+        }
+      })()}{" "} */}
     </Router>
   );
 }

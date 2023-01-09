@@ -38,6 +38,7 @@ const Profile = (props) => {
     } catch {
       toast.error("Something went wrong.Try Again!");
       setIsSent(false);
+      return;
     }
   };
   const handleCopyText = (e) => {
@@ -65,8 +66,9 @@ const Profile = (props) => {
       .catch((err) => {
         toast.error("Something went wrong...");
         setUpdatingPhone(false);
+        return;
       });
-    console.log(res);
+    // console.log(res);
   };
   const handleProfileData = () => {
     setLoading(true);
@@ -77,10 +79,10 @@ const Profile = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // if (!data.name) {
-        //   navigate("/signup-step-2");
-        //   return;
-        // }
+        if (!data.name) {
+          navigate("/signup-step-2");
+          return;
+        }
         setName(data?.name);
         setCollege(data?.collegeName);
         setDOB(data?.dob);
@@ -95,7 +97,8 @@ const Profile = (props) => {
       })
       .catch((err) => {
         toast.error("Something went wrong...");
-        Navigate("/");
+        navigate("/");
+        return;
       });
     setLoading(false);
   };
